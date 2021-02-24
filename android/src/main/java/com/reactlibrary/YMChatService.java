@@ -21,16 +21,16 @@ public class YMChatService {
        this.ymChat =  YMChat.getInstance();
     }
 
-    void setBotId(String botId){
+    public void setBotId(String botId){
         ymChat.config = new YMConfig(botId);
     }
 
-    void startChatbot(Context context)
+    public void startChatbot(Context context)
     {
         ymChat.startChatbot(context);
     }
 
-    void EventListener(BotEventListener eventListener)
+    public void EventListener(BotEventListener eventListener)
     {
         ymChat.onEventFromBot(eventListener);
     }
