@@ -43,6 +43,6 @@ repositories {
 
 dependencies {
     api 'com.facebook.react:react-native:+'
-    implementation 'com.github.yellowmessenger:YMChatbot-Android:0.0.1-alpha'
+    implementation 'com.github.yellowmessenger:YMChatbot-Android:alpha-v1.0.3'
 }
   

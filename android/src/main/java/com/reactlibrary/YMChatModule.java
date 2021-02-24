@@ -2,7 +2,6 @@
 package com.reactlibrary;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -20,11 +19,9 @@ public class YMChatModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void initialize(String botId)
-  {
-    Log.d("Android log","This is hai from android");
+  public void initialize(String botId) {
+    Log.d("YMChat Android","Inititalizing chatbot.");
       ymChatService.setBotId(botId);
-    Toast.makeText(reactContext,"Hi hello bayijaan",Toast.LENGTH_LONG).show();
   }
   
   @ReactMethod

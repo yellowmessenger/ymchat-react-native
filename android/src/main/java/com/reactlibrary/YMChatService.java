@@ -10,10 +10,6 @@ import com.yellowmessenger.ymchat.models.YMBotEventResponse;
 import java.util.HashMap;
 
 public class YMChatService {
-    // Dummy bot id. (Purrs a lot)
-    String botId ;
-    YMConfig config;
-    HashMap<String, Object> payloadData;
     YMChat ymChat;
 
     YMChatService()
@@ -23,6 +19,8 @@ public class YMChatService {
 
     public void setBotId(String botId){
         ymChat.config = new YMConfig(botId);
+        HashMap<String, Object> payloadData = new HashMap<>();
+        ymChat.config.payload = payloadData;
     }
 
     public void startChatbot(Context context)
