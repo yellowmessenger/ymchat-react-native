@@ -1,7 +1,7 @@
 
-#import "YMChat.h"
-
-@implementation YMChat
+#import "YMChatReact.h"
+#import <YMChat>
+@implementation YMChatReact
 
 - (dispatch_queue_t)methodQueue
 {

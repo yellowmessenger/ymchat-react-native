@@ -5,7 +5,7 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
-@interface YMChat : NSObject <RCTBridgeModule>
+@interface YMChatReact : NSObject <RCTBridgeModule>
 
 @end
   
