@@ -19,23 +19,48 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void initialize(String botId) {
+    public void setBotId(String botId) {
         Log.d("YMChat Android", "Inititalizing chatbot.");
         ymChatService.setBotId(botId);
     }
 
     @ReactMethod
-    public void startChatBot() {
+    public void startChatbot() {
         ymChatService.startChatbot(reactContext);
     }
 
-    @ReactMethod
-    public void eventListener(Callback callbackListener) {
-    ymChatService.eventListener(callbackListener);
+    public void closeBot() {
+        ymChatService.closeBot();
     }
 
     @ReactMethod
-    public void addPayload(String key, String value) {
+    public void onEventFromBot(Callback callbackListener) {
+        ymChatService.onEventFromBot(callbackListener);
+    }
+
+    @ReactMethod
+    public void setEnableSpeech() {
+        ymChatService.setEnableSpeech();
+    }
+
+    @ReactMethod
+    public void setEnableHistory() {
+        ymChatService.setEnableHistory();
+    }
+
+    @ReactMethod
+    public void setAuthenticationToken(String token) {
+        ymChatService.setAuthenticationToken(token);
+    }
+
+    @ReactMethod
+    public void showCloseButton() {
+        ymChatService.showCloseButton();
+    }
+
+
+    @ReactMethod
+    public void setPayload(String key, String value) {
         ymChatService.addPayload(key, value);
     }
 
@@ -43,4 +68,5 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     public String getName() {
         return "YMChat";
     }
+
 }
