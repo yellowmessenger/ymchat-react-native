@@ -36,20 +36,38 @@ RCT_EXPORT_METHOD(onEventFromBot: (RCTResponseSenderBlock) callback) {
   [_onBotEvent addObject:callback];
 }
 
-
-RCT_EXPORT_METHOD(setEnableSpeech:(BOOL)speech) {
+RCT_EXPORT_METHOD(setEnableSpeech:(BOOL) speech) {
+  assert(YMChat.shared.config != nil);
   YMChat.shared.config.enableSpeech = speech;
 }
 
-RCT_EXPORT_METHOD(setEnableHistory:(BOOL)history) {
+RCT_EXPORT_METHOD(setEnableHistory:(BOOL) history) {
+  assert(YMChat.shared.config != nil);
   YMChat.shared.config.enableHistory = history;
 }
 
-RCT_EXPORT_METHOD(setPayload:(NSDictionary *)payload) {
+RCT_EXPORT_METHOD(setAuthenticationToken:(NSString *) token) {
+  assert(YMChat.shared.config != nil);
+  YMChat.shared.config.ymAuthenticationToken = token;
+}
+
+RCT_EXPORT_METHOD(setDeviceToken:(NSString *) token) {
+  assert(YMChat.shared.config != nil);
+  YMChat.shared.config.deviceToken = token;
+}
+
+RCT_EXPORT_METHOD(showCloseButton:(BOOL) show) {
+  assert(YMChat.shared.config != nil);
+  YMChat.shared.config.showCloseButton = show;
+}
+
+RCT_EXPORT_METHOD(setPayload:(NSDictionary *) payload) {
+  assert(YMChat.shared.config != nil);
   YMChat.shared.config.payload = payload;
 }
 
 RCT_EXPORT_METHOD(addKeyToPayload:(NSString *)key value:(NSString *)value) {
+  assert(YMChat.shared.config != nil);
   NSMutableDictionary *dict = [YMChat.shared.config.payload mutableCopy];
   dict[key] = value;
   YMChat.shared.config.payload = dict;
