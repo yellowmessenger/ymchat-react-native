@@ -1,13 +1,13 @@
 
-# react-native-chat
+# ymchat-react-native
 
 ## Getting started
 
-`$ npm install react-native-chat --save`
+`$ npm install ymchat-react-native --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-chat`
+`$ react-native link ymchat-react-native`
 
 ### Manual installation
 
@@ -15,7 +15,7 @@
 #### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-chat` and add `YMChat.xcodeproj`
+2. Go to `node_modules` ➜ `ymchat-react-native` and add `YMChat.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libYMChat.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
@@ -26,18 +26,18 @@
   - Add `new YMChatPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
-  	include ':react-native-chat'
-  	project(':react-native-chat').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-chat/android')
+  	include ':ymchat-react-native'
+  	project(':ymchat-react-native').projectDir = new File(rootProject.projectDir, 	'../node_modules/ymchat-react-native/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-chat')
+      compile project(':ymchat-react-native')
   	```
 
 
 ## Usage
 ```javascript
-import YMChat from 'react-native-chat';
+import YMChat from 'ymchat-react-native';
 
 // TODO: What to do with the module?
 YMChat;
