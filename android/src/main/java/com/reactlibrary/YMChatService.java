@@ -7,6 +7,7 @@ import com.facebook.react.bridge.ReadableMap;
 import com.reactlibrary.YmChatUtils.Utils;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
+
 import java.util.HashMap;
 
 public class YMChatService {
@@ -30,6 +31,10 @@ public class YMChatService {
 
     public void closeBot() {
         ymChat.closeBot();
+    }
+
+    public void setDeviceToken(String token) {
+        ymChat.config.deviceToken = token;
     }
 
     public void onEventFromBot(Callback callbackListener) {
