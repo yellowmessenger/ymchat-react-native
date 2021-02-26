@@ -21,7 +21,6 @@ public class YMChatModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void setBotId(String botId) {
-        Log.d("YMChat Android", "Inititalizing chatbot.");
         ymChatService.setBotId(botId);
     }
 
@@ -30,8 +29,14 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.startChatbot(reactContext);
     }
 
+    @ReactMethod
     public void closeBot() {
         ymChatService.closeBot();
+    }
+
+    @ReactMethod
+    public void setDeviceToken(String token) {
+        ymChatService.setDeviceToken(token);
     }
 
     @ReactMethod
