@@ -1,6 +1,6 @@
 {
   "name": "ymchat-react-native",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React native bridge over Yellow Messenger's native bot SDK",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "author": "Kaunteya",
   "license": "ISC",
   "peerDependencies": {
-    "react-native": "^0.21.0"
+    "react-native": "^0.63.4"
   },
   "dependencies": {
     "absolute-path": "^0.0.0",
