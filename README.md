@@ -43,19 +43,19 @@ import YMChat from 'ymchat-react-native';
 
 ### Set botId
 This is the first and **compulsary** step.
-```
+```javascript
 YMChat.setBotId("x1234567890");
 ```
 
 ## Present chatbot
 Chat bot can be presented by calling `startChatbot()`. This method will display full screen chat view
-```
+```javascript
 MChat.startChatbot();
 ```
 
 ## Close bot
 Bot canbe closed by tapping on cross button at top, and they can be progrmatically closed using `closeBot()` function
-```
+```javascript
 YMChat.shared.closeBot();
 ```
 
@@ -63,39 +63,39 @@ YMChat.shared.closeBot();
 
 ### Speech to Text
 Speech to text can be enabled and disabled by calling setEnableSpeech(). Default value is `false`
-```
+```javascript
 YMChat.setEnableSpeech(true);
 ```
 
 ### History
 Chat history can be enabled and disabled by calling setEnableHistory(). Default value is `false`
-```
+```javascript
 YMChat.setEnableHistory(true)
 ```
 
 ### Authentication Token
 Authentication token can be set using `setAuthenticationToken` method
-```
+```javascript
 YMChat.setAuthenticationToken("token");
 ```
 
 ### Device Token
 Device token can be set using `setDeviceToken` method
-```
+```javascript
 YMChat.setDeviceToken("token");
 ```
 
 ### Event from bot
 Bot can send events to the host app. The events can be handled in `onEventFromBot` handler
-```
-  YMChat.onEventFromBot((code, data) => {
-    console.log("Bot event:  " + code);
-  })
+```javascript
+YMChat.onEventFromBot((code, data) => {
+  console.log("Bot event:  " + code);
+})
 ```
 
 ### Payload
 Additional payload can be added in the form of key value pair, which is then appended to the bot
-```
+```javascript
 YMChat.setPayload({ "name": "Purush", "age": "21" });
 ```
   
