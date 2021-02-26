@@ -71,6 +71,14 @@ Speech to text can be enabled and disabled by calling setEnableSpeech(). Default
 YMChat.setEnableSpeech(true);
 ```
 
+If you are supporting Speech recognization, add following snippet to Info.plist of the host app
+```
+<key>NSMicrophoneUsageDescription</key>  
+<string>Your microphone will be used to record your speech when you use the Voice feature.</string>
+<key>NSSpeechRecognitionUsageDescription</key>  
+<string>Speech recognition will be used to determine which words you speak into this device&apos;s microphone.</string>
+```
+
 ### History
 Chat history can be enabled and disabled by calling setEnableHistory(). Default value is `false`
 ```javascript
