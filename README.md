@@ -36,10 +36,66 @@
 
 
 ## Usage
+Import YMChat in App.js
 ```javascript
 import YMChat from 'ymchat-react-native';
+```
 
-// TODO: What to do with the module?
-YMChat;
+### Set botId
+This is the first and **compulsary** step.
+```
+YMChat.setBotId("x1234567890");
+```
+
+## Present chatbot
+Chat bot can be presented by calling `startChatbot()`. This method will display full screen chat view
+```
+MChat.startChatbot();
+```
+
+## Close bot
+Bot canbe closed by tapping on cross button at top, and they can be progrmatically closed using `closeBot()` function
+```
+YMChat.shared.closeBot();
+```
+
+## Other configurations
+
+### Speech to Text
+Speech to text can be enabled and disabled by calling setEnableSpeech(). Default value is `false`
+```
+YMChat.setEnableSpeech(true);
+```
+
+### History
+Chat history can be enabled and disabled by calling setEnableHistory(). Default value is `false`
+```
+YMChat.setEnableHistory(true)
+```
+
+### Authentication Token
+Authentication token can be set using `setAuthenticationToken` method
+```
+YMChat.setAuthenticationToken("token");
+```
+
+### Device Token
+Device token can be set using `setDeviceToken` method
+```
+YMChat.setDeviceToken("token");
+```
+
+### Event from bot
+Bot can send events to the host app. The events can be handled in `onEventFromBot` handler
+```
+  YMChat.onEventFromBot((code, data) => {
+    console.log("Bot event:  " + code);
+  })
+```
+
+### Payload
+Additional payload can be added in the form of key value pair, which is then appended to the bot
+```
+YMChat.setPayload({ "name": "Purush", "age": "21" });
 ```
   
