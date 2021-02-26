@@ -1,15 +1,12 @@
 package com.reactlibrary;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.facebook.react.bridge.Callback;
-import com.yellowmessenger.ymchat.BotEventListener;
+import com.facebook.react.bridge.ReadableMap;
+import com.reactlibrary.YmChatUtils.Utils;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
-import com.yellowmessenger.ymchat.models.YMBotEventResponse;
-
-import java.security.Key;
 import java.util.HashMap;
 
 public class YMChatService {
@@ -41,24 +38,24 @@ public class YMChatService {
         });
     }
 
-    public void setEnableSpeech() {
-        ymChat.config.enableSpeech = true;
+    public void setEnableSpeech(boolean speech) {
+        ymChat.config.enableSpeech = speech;
     }
 
-    public void setEnableHistory() {
-        ymChat.config.enableHistory = true;
+    public void setEnableHistory(boolean history) {
+        ymChat.config.enableHistory = history;
     }
 
     public void setAuthenticationToken(String token) {
         ymChat.config.ymAuthenticationToken = token;
     }
 
-    public void showCloseButton() {
-        ymChat.config.showCloseButton = true;
+    public void showCloseButton(boolean show) {
+        ymChat.config.showCloseButton = show;
     }
 
-    public void addPayload(String key, String value) {
-        ymChat.config.payload.put(key, value);
+    public void setPayload(ReadableMap payload) {
+        ymChat.config.payload.putAll(Utils.readableMapToHashMap(payload));
     }
 }
 

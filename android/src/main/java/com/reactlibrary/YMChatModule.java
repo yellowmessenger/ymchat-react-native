@@ -7,6 +7,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.ReadableMap;
 
 public class YMChatModule extends ReactContextBaseJavaModule {
 
@@ -39,13 +40,13 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setEnableSpeech() {
-        ymChatService.setEnableSpeech();
+    public void setEnableSpeech(boolean speech) {
+        ymChatService.setEnableSpeech(speech);
     }
 
     @ReactMethod
-    public void setEnableHistory() {
-        ymChatService.setEnableHistory();
+    public void setEnableHistory(boolean history) {
+        ymChatService.setEnableHistory(history);
     }
 
     @ReactMethod
@@ -54,14 +55,14 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void showCloseButton() {
-        ymChatService.showCloseButton();
+    public void showCloseButton(boolean show) {
+        ymChatService.showCloseButton(show);
     }
 
 
     @ReactMethod
-    public void setPayload(String key, String value) {
-        ymChatService.addPayload(key, value);
+    public void setPayload(ReadableMap payload) {
+        ymChatService.setPayload(payload);
     }
 
     @Override
