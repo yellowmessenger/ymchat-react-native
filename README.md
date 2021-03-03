@@ -109,7 +109,8 @@ YMChat.setAuthenticationToken("token");
 ```
 
 ### Device Token
-Device token can be set using `setDeviceToken` method. `fcmToken` shall be passed to this method 
+Device token can be set using `setDeviceToken` method. Pass `fcmToken` as a parameter to this method.
 ```javascript
 YMChat.setDeviceToken("token");
 ```
+It is recommended to set authentication token and device token before `startChatbot()`
