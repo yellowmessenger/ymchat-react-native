@@ -114,3 +114,5 @@ Device token can be set using `setDeviceToken` method. Pass `fcmToken` as a para
 YMChat.setDeviceToken("token");
 ```
 It is recommended to set authentication token and device token before `startChatbot()`
+
+Note: Firebase service account key is required to send notifications. You can share the service account key with us. More info [here](https://developers.google.com/assistant/engagement/notifications#get_a_service_account_key)
