@@ -85,18 +85,6 @@ Chat history can be enabled and disabled by calling setEnableHistory(). Default 
 YMChat.setEnableHistory(true)
 ```
 
-### Authentication Token
-Authentication token can be set using `setAuthenticationToken` method
-```javascript
-YMChat.setAuthenticationToken("token");
-```
-
-### Device Token
-Device token can be set using `setDeviceToken` method
-```javascript
-YMChat.setDeviceToken("token");
-```
-
 ### Event from bot
 Bot can send events to the host app. The events can be handled in `onEventFromBot` handler
 ```javascript
@@ -111,3 +99,17 @@ Additional payload can be added in the form of key value pair, which is then app
 YMChat.setPayload({ "name": "Purush", "age": "21" });
 ```
   
+## Push Notifications
+ymchat-react-native supports firebase notifications. Push notifications needs `authentication token` and `device token`
+
+### Authentication Token
+Authentication token can be set using `setAuthenticationToken` method. Auth token can be a unique identifier like email or UUID
+```javascript
+YMChat.setAuthenticationToken("token");
+```
+
+### Device Token
+Device token can be set using `setDeviceToken` method. `fcmToken` shall be passed to this method 
+```javascript
+YMChat.setDeviceToken("token");
+```
