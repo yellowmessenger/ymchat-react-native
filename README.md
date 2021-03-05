@@ -1,16 +1,20 @@
 
 # ymchat-react-native
 
-## Getting started
+## Installation
+### npm
+```
+$ npm install ymchat-react-native --save
 
-`$ npm install ymchat-react-native --save`
+$ react-native link ymchat-react-native
+```
 
-### Mostly automatic installation
-
-`$ react-native link ymchat-react-native`
+### yarn
+```
+yarn add ymchat-react-native --save
+```
 
 ### Manual installation
-
 
 #### iOS
 
@@ -36,10 +40,79 @@
 
 
 ## Usage
+Import YMChat in App.js
 ```javascript
 import YMChat from 'ymchat-react-native';
+```
 
-// TODO: What to do with the module?
-YMChat;
+### Set botId
+This is the first and **compulsary** step.
+```javascript
+YMChat.setBotId("x1234567890");
+```
+
+## Present chatbot
+Chat bot can be presented by calling `startChatbot()`. This method will display full screen chat view
+```javascript
+MChat.startChatbot();
+```
+
+## Close bot
+Bot canbe closed by tapping on cross button at top, and they can be progrmatically closed using `closeBot()` function
+```javascript
+YMChat.shared.closeBot();
+```
+
+## Other configurations
+
+### Speech to Text
+Speech to text can be enabled and disabled by calling setEnableSpeech(). Default value is `false`
+```javascript
+YMChat.setEnableSpeech(true);
+```
+
+If you are supporting Speech recognization, add following snippet to Info.plist of the host app
+```
+<key>NSMicrophoneUsageDescription</key>  
+<string>Your microphone will be used to record your speech when you use the Voice feature.</string>
+<key>NSSpeechRecognitionUsageDescription</key>  
+<string>Speech recognition will be used to determine which words you speak into this device&apos;s microphone.</string>
+```
+
+### History
+Chat history can be enabled and disabled by calling setEnableHistory(). Default value is `false`
+```javascript
+YMChat.setEnableHistory(true)
+```
+
+### Event from bot
+Bot can send events to the host app. The events can be handled in `onEventFromBot` handler
+```javascript
+YMChat.onEventFromBot((code, data) => {
+  console.log("Bot event:  " + code);
+})
+```
+
+### Payload
+Additional payload can be added in the form of key value pair, which is then appended to the bot
+```javascript
+YMChat.setPayload({ "name": "Purush", "age": "21" });
 ```
   
+## Push Notifications
+ymchat-react-native supports firebase notifications. Push notifications needs `authentication token` and `device token`
+
+### Authentication Token
+Authentication token can be set using `setAuthenticationToken` method. Auth token can be a unique identifier like email or UUID
+```javascript
+YMChat.setAuthenticationToken("token");
+```
+
+### Device Token
+Device token can be set using `setDeviceToken` method. Pass `fcmToken` as a parameter to this method.
+```javascript
+YMChat.setDeviceToken("token");
+```
+It is recommended to set authentication token and device token before `startChatbot()`
+
+Note: Firebase service account key is required to send notifications. You can share the service account key with us. More info [here](https://developers.google.com/assistant/engagement/notifications#get_a_service_account_key)
