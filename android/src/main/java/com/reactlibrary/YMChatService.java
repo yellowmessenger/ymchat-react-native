@@ -24,7 +24,8 @@ public class YMChatService {
         ymChat.onEventFromBot(botEvent ->
         {
             WritableMap params = Arguments.createMap();
-            params.putString(botEvent.getCode(), botEvent.getData());
+            params.putString("code", botEvent.getCode());
+            params.putString("data", botEvent.getData());
             reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                     .emit("YMChatEvent",params);
         });
