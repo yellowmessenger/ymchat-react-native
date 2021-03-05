@@ -2,8 +2,12 @@ package com.reactlibrary;
 
 import android.content.Context;
 
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.reactlibrary.YmChatUtils.Utils;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
@@ -15,8 +19,15 @@ public class YMChatService {
 
     HashMap<String, Object> payloadData = new HashMap<>();
 
-    YMChatService() {
+    YMChatService(ReactApplicationContext reactContext) {
         this.ymChat = YMChat.getInstance();
+        ymChat.onEventFromBot(botEvent ->
+        {
+            WritableMap params = Arguments.createMap();
+            params.putString(botEvent.getCode(), botEvent.getData());
+            reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                    .emit("YMChatEvent",params);
+        });
     }
 
     public void setBotId(String botId) {
@@ -35,12 +46,6 @@ public class YMChatService {
 
     public void setDeviceToken(String token) {
         ymChat.config.deviceToken = token;
-    }
-
-    public void onEventFromBot(Callback callbackListener) {
-        ymChat.onEventFromBot(botEvent -> {
-            callbackListener.invoke(botEvent.getCode(), botEvent.getData());
-        });
     }
 
     public void setEnableSpeech(boolean speech) {

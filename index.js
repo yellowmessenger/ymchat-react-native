@@ -1,6 +1,7 @@
 
-import { NativeModules } from 'react-native';
+import { NativeModules, NativeEventEmitter } from 'react-native';
 
 const { YMChat } = NativeModules;
+const YMChatEvents = new NativeEventEmitter(YMChat);
 
-export default YMChat;
+module.exports = { "YMChat": YMChat, "YMChatEvents": YMChatEvents };
