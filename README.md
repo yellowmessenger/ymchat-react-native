@@ -86,14 +86,11 @@ YMChat.setEnableHistory(true)
 ```
 
 ### Event from bot
-Bot can send events to the host app. Import `YMChatEvents` from `ymchat-react-native`
+Bot can send events to the host app. The events can be handled in `onEventFromBot` handler
 ```javascript
-import { YMChat, YMChatEvents } from 'ymchat-react-native';
-..
-..
-YMChatEvents.addListener('YMChatEvent', (event) => {
-      console.log(event.code, event.data); // you get access to all incoming bot events.
-    });
+YMChat.onEventFromBot((code, data) => {
+  console.log("Bot event:  " + code);
+})
 ```
 
 ### Payload
