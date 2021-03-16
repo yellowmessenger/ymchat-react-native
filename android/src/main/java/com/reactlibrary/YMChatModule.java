@@ -8,15 +8,17 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 public class YMChatModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
-    private final YMChatService ymChatService = new YMChatService();
+    private YMChatService ymChatService;
 
     public YMChatModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
+         ymChatService= new YMChatService(reactContext);
     }
 
     @ReactMethod
@@ -37,11 +39,6 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void setDeviceToken(String token) {
         ymChatService.setDeviceToken(token);
-    }
-
-    @ReactMethod
-    public void onEventFromBot(Callback callbackListener) {
-        ymChatService.onEventFromBot(callbackListener);
     }
 
     @ReactMethod
