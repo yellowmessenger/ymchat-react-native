@@ -1,6 +1,12 @@
+import { NativeModules, NativeEventEmitter, Platform } from 'react-native';
 
-import { NativeModules } from 'react-native';
+const { YMChat, YMEventEmitter } = NativeModules;
 
-const { YMChat } = NativeModules;
+var YMChatEvents
+if (Platform.OS === "ios") {
+    YMChatEvents = new NativeEventEmitter(YMEventEmitter);
+} else {
+    YMChatEvents = new NativeEventEmitter(YMChat);
+}
 
-export default YMChat;
+module.exports = { "YMChat": YMChat, "YMChatEvents": YMChatEvents };
