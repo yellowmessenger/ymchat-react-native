@@ -29,6 +29,7 @@
 		91FA0E5E2600BD17004230D3 /* YMEventEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMEventEmitter.h; sourceTree = "<group>"; };
 		91FA0E5F2600BD17004230D3 /* YMEventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMEventEmitter.m; sourceTree = "<group>"; };
 		91FA0E602600BD17004230D3 /* YMChatReactNative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMChatReactNative.m; sourceTree = "<group>"; };
+		91FA0E8E2600C065004230D3 /* ymchat-react-native.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = "ymchat-react-native.podspec"; path = "../ymchat-react-native.podspec"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +58,7 @@
 				91FA0E602600BD17004230D3 /* YMChatReactNative.m */,
 				91FA0E5E2600BD17004230D3 /* YMEventEmitter.h */,
 				91FA0E5F2600BD17004230D3 /* YMEventEmitter.m */,
+				91FA0E8E2600C065004230D3 /* ymchat-react-native.podspec */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = "<group>";
