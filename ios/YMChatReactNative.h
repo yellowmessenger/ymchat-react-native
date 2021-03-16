@@ -7,7 +7,6 @@
 
 @import YMChat;
 
-@interface YMChatReact : NSObject <RCTBridgeModule, YMChatDelegate>
+@interface YMChatReactNative : NSObject <RCTBridgeModule, YMChatDelegate>
 
 @end
-  
