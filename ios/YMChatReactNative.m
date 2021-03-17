@@ -65,7 +65,8 @@ RCT_EXPORT_METHOD(addKeyToPayload:(NSString *)key value:(NSString *)value) {
 
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
     if (YMEventEmitter.shared) {
-        [YMEventEmitter.shared sendEventWithName:@"YMChatEvent" body:@"Hello"];
+        NSDictionary *body = @{@"code": response.code, @"data": response.data};
+        [YMEventEmitter.shared sendEventWithName:@"YMChatEvent" body:body];
     }
 }
 
