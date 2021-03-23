@@ -54,7 +54,7 @@ YMChat.setBotId("x1234567890");
 ## Present chatbot
 Chat bot can be presented by calling `startChatbot()`. This method will display full screen chat view
 ```javascript
-MChat.startChatbot();
+YMChat.startChatbot();
 ```
 
 ## Close bot
