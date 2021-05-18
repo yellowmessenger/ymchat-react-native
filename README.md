@@ -3,15 +3,15 @@
 
 ## Installation
 ### npm
-```
+```sh
 $ npm install ymchat-react-native --save
 
 $ react-native link ymchat-react-native
 ```
 
 ### yarn
-```
-yarn add ymchat-react-native --save
+```sh
+yarn add ymchat-react-native
 ```
 
 ### Manual installation
