@@ -64,10 +64,6 @@ public class YMChatService {
     public void showCloseButton(boolean show) {
         ymChat.config.showCloseButton = show;
     }
-
-    public void showCloseButton(boolean show) {
-        ymChat.config.showCloseButton = show;
-    }
     public void customBaseUrl(String url) {
         ymChat.config.customBaseUrl = url;
     }
