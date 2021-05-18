@@ -61,6 +61,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.showCloseButton(show);
     }
 
+    @ReactMethod
+    public void setCustomURL(String url) {
+        ymChatService.customBaseUrl(url);
+    }
+
 
     @ReactMethod
     public void setPayload(ReadableMap payload) {

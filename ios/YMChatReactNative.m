@@ -46,6 +46,11 @@ RCT_EXPORT_METHOD(setDeviceToken:(NSString *) token) {
     YMChat.shared.config.deviceToken = token;
 }
 
+RCT_EXPORT_METHOD(setCustomURL:(NSString *) url) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.customBaseUrl = url;
+}
+
 RCT_EXPORT_METHOD(showCloseButton:(BOOL) show) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.showCloseButton = show;

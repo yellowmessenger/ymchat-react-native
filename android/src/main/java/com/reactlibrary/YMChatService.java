@@ -64,6 +64,9 @@ public class YMChatService {
     public void showCloseButton(boolean show) {
         ymChat.config.showCloseButton = show;
     }
+    public void customBaseUrl(String url) {
+        ymChat.config.customBaseUrl = url;
+    }
 
     public void setPayload(ReadableMap payload) {
         ymChat.config.payload.putAll(Utils.readableMapToHashMap(payload));
