@@ -1,14 +1,11 @@
 
 package com.reactlibrary;
 
-import android.util.Log;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReadableMap;
-import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 public class YMChatModule extends ReactContextBaseJavaModule {
 
@@ -28,7 +25,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void startChatbot() {
-        ymChatService.startChatbot(reactContext);
+        try {
+            ymChatService.startChatbot(reactContext);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @ReactMethod
