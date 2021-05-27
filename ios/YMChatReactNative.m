@@ -19,7 +19,7 @@ RCT_EXPORT_METHOD(setBotId:(NSString *)botId) {
 RCT_EXPORT_METHOD(startChatbot) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.delegate = self;
-    [[YMChat shared] startChatbotWithAnimated:true completion:nil];
+    [[YMChat shared] startChatbotWithAnimated:YES error: nil completion:nil];
 }
 
 RCT_EXPORT_METHOD(closeBot) {
