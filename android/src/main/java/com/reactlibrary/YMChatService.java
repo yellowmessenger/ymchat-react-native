@@ -29,6 +29,11 @@ public class YMChatService {
             reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                     .emit("YMChatEvent",params);
         });
+        ymChat.onBotClose(() ->
+        {
+            reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                    .emit("YMBotCloseEvent",null);
+        });
     }
 
     public void setBotId(String botId) {
