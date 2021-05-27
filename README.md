@@ -3,15 +3,15 @@
 
 ## Installation
 ### npm
-```
+```sh
 $ npm install ymchat-react-native --save
 
 $ react-native link ymchat-react-native
 ```
 
 ### yarn
-```
-yarn add ymchat-react-native --save
+```sh
+yarn add ymchat-react-native
 ```
 
 ### Manual installation
@@ -119,3 +119,7 @@ YMChat.setDeviceToken("token");
 It is recommended to set authentication token and device token before `startChatbot()`
 
 Note: Firebase service account key is required to send notifications. You can share the service account key with us. More info [here](https://developers.google.com/assistant/engagement/notifications#get_a_service_account_key)
+
+## Demo App
+A demo app can be used as a reference to better understand how this SDK can be integrated in the app
+[https://github.com/yellowmessenger/ymchat-react-native-demo](https://github.com/yellowmessenger/ymchat-react-native-demo)
