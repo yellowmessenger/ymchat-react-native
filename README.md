@@ -57,18 +57,21 @@ Chat bot can be presented by calling `startChatbot()`. This method will display 
 YMChat.startChatbot();
 ```
 
-## Close bot
-Bot canbe closed by tapping on cross button at top, and they can be progrmatically closed using `closeBot()` function
-```javascript
-YMChat.shared.closeBot();
-```
-
 ## Other configurations
 
 ### Speech to Text
 Speech to text can be enabled and disabled by calling setEnableSpeech(). Default value is `false`
 ```javascript
 YMChat.setEnableSpeech(true);
+```
+
+### Payload
+Information can be passed from app to bot using payload.
+
+The payload dictionary should be JSON compatible else an error will be thrown
+
+```javascript
+YMChat.setPayload({ "name": "Purush", "age": 21 });
 ```
 
 If you are supporting Speech recognization, add following snippet to Info.plist of the host app
@@ -92,14 +95,27 @@ import { YMChat, YMChatEvents } from 'ymchat-react-native';
 ..
 ..
 YMChatEvents.addListener('YMChatEvent', (event) => {
-      console.log(event.code, event.data); // you get access to all incoming bot events.
-    });
+   console.log(event.code, event.data); // you get access to all incoming bot events.
+});
 ```
 
-### Payload
-Additional payload can be added in the form of key value pair, which is then appended to the bot
+## Close bot
+Bot canbe closed by tapping on cross button at top, and they can be progrmatically closed using `closeBot()` function
 ```javascript
-YMChat.setPayload({ "name": "Purush", "age": "21" });
+YMChat.shared.closeBot();
+```
+ 
+ ## Close bot event
+Bot close event is separetly sent and it can be handled in following way.
+```javascript
+```javascript
+import { YMChat, YMChatEvents } from 'ymchat-react-native';
+..
+..
+YMChatEvents.addListener('YMBotCloseEvent', () => {
+   console.log("Bot closed");
+});
+
 ```
   
 ## Push Notifications
