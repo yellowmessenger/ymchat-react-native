@@ -29,6 +29,9 @@ public class YMChatService {
             reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                     .emit("YMChatEvent",params);
         });
+        ymChat.onBotClose(() ->
+                reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                        .emit("YMBotCloseEvent",null));
     }
 
     public void setBotId(String botId) {
@@ -37,7 +40,7 @@ public class YMChatService {
         ymChat.config.payload = payloadData;
     }
 
-    public void startChatbot(Context context) {
+    public void startChatbot(Context context) throws Exception {
         ymChat.startChatbot(context);
     }
 
@@ -64,6 +67,7 @@ public class YMChatService {
     public void showCloseButton(boolean show) {
         ymChat.config.showCloseButton = show;
     }
+
     public void customBaseUrl(String url) {
         ymChat.config.customBaseUrl = url;
     }
