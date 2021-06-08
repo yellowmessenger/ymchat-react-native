@@ -38,7 +38,11 @@ public class YMChatService {
     }
 
     public void startChatbot(Context context) {
-        ymChat.startChatbot(context);
+        try {
+            ymChat.startChatbot(context);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void closeBot() {
