@@ -19,7 +19,7 @@ RCT_EXPORT_METHOD(setBotId:(NSString *)botId) {
 RCT_EXPORT_METHOD(startChatbot) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.delegate = self;
-    [[YMChat shared] startChatbotWithAnimated:true completion:nil];
+    [[YMChat shared] startChatbotWithAnimated:YES error: nil completion:nil];
 }
 
 RCT_EXPORT_METHOD(closeBot) {
@@ -76,6 +76,11 @@ RCT_EXPORT_METHOD(addKeyToPayload:(NSString *)key value:(NSString *)value) {
             dict[@"data"] = response.data;
         }
         [YMEventEmitter.shared sendEventWithName:@"YMChatEvent" body:dict];
+    }
+}
+- (void) onBotClose {
+    if (YMEventEmitter.shared) {
+        [YMEventEmitter.shared sendEventWithName:@"YMBotCloseEvent" body:nil];
     }
 }
 
