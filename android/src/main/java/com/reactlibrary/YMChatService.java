@@ -40,8 +40,12 @@ public class YMChatService {
         ymChat.config.payload = payloadData;
     }
 
-    public void startChatbot(Context context) throws Exception {
-        ymChat.startChatbot(context);
+    public void startChatbot(Context context) {
+        try {
+            ymChat.startChatbot(context);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void closeBot() {
