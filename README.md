@@ -116,12 +116,7 @@ YMChatEvents.addListener('YMBotCloseEvent', () => {
 });
 
 ```
-## On-Prem Deployments
-ymchat-react-native supports bots with on-prem deployments. For the bot to work, pass the on-prem URL to `setCustomURL()` method.
-```javascript
-YMChat.setCustomURL(' https://urjachatbot.bpcl.in/');
-```
-  
+
 ## Push Notifications
 ymchat-react-native supports firebase notifications. Push notifications needs `authentication token` and `device token`
 
@@ -139,6 +134,12 @@ YMChat.setDeviceToken("token");
 It is recommended to set authentication token and device token before `startChatbot()`
 
 Note: Firebase service account key is required to send notifications. You can share the service account key with us. More info [here](https://developers.google.com/assistant/engagement/notifications#get_a_service_account_key)
+
+## On-Prem Deployments
+ymchat-react-native supports bots with on-prem deployments. For the bot to work, pass the on-prem URL to `setCustomURL()` method.
+```javascript
+YMChat.setCustomURL(' https://urjachatbot.bpcl.in/');
+```
 
 ## Demo App
 A demo app can be used as a reference to better understand how this SDK can be integrated in the app
