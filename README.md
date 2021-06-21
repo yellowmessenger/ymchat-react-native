@@ -138,7 +138,7 @@ Note: Firebase service account key is required to send notifications. You can sh
 ## On-Prem Deployments
 ymchat-react-native supports bots with on-prem deployments. For the bot to work, pass the on-prem URL to `setCustomURL()` method.
 ```javascript
-YMChat.setCustomURL('<CUSTOM-BASE-URL>');
+YMChat.setCustomURL('https://your-on-prem-url.com');
 ```
 
 ## Demo App
