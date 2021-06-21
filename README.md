@@ -108,7 +108,6 @@ YMChat.shared.closeBot();
  ## Close bot event
 Bot close event is separetly sent and it can be handled in following way.
 ```javascript
-```javascript
 import { YMChat, YMChatEvents } from 'ymchat-react-native';
 ..
 ..
@@ -116,6 +115,11 @@ YMChatEvents.addListener('YMBotCloseEvent', () => {
    console.log("Bot closed");
 });
 
+```
+## On-Prem Deployments
+ymchat-react-native supports bots with on-prem deployments. For the bot to work, pass the on-prem URL to `setCustomURL()` method.
+```javascript
+YMChat.setCustomURL(' https://urjachatbot.bpcl.in/');
 ```
   
 ## Push Notifications
