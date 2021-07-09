@@ -37,6 +37,12 @@ yarn add ymchat-react-native
   	```
       compile project(':ymchat-react-native')
   	```
+4. Add following key in your `strings.xml` file, this will override default file provider used by SDK.
+   Overriding the file provider path will avoid conflict with other app using YM CHATBOT SDK. You can use your application id and suffix it with `.fileprovider`
+   Example - applicationId : `com.abc.xyz` then  application_id_for_provider = `com.abc.xyz.fileprovider`
+   ```xml
+    <string name="application_id_for_provider">your.application.id.fileprovider</string>
+   ```
 
 
 ## Usage
