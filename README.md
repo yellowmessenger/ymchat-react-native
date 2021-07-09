@@ -42,7 +42,7 @@ yarn add ymchat-react-native
 ## Usage
 Import YMChat in App.js
 ```javascript
-import YMChat from 'ymchat-react-native';
+import { YMChat } from 'ymchat-react-native';
 ```
 
 ### Set botId
