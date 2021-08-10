@@ -17,7 +17,7 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -43,6 +43,6 @@ repositories {
 
 dependencies {
     api 'com.facebook.react:react-native:+'
-    implementation 'com.github.yellowmessenger:YMChatbot-Android:v1.4.0'
+    implementation 'com.github.yellowmessenger:YMChatbot-Android:v1.4.1'
 }
   
