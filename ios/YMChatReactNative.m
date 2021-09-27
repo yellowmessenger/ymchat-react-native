@@ -68,6 +68,16 @@ RCT_EXPORT_METHOD(addKeyToPayload:(NSString *)key value:(NSString *)value) {
     YMChat.shared.config.payload = dict;
 }
 
+RCT_EXPORT_METHOD(unlinkDeviceToken:(NSString *)botId apiKey:(NSString *)apiKey deviceToken:(NSString *)deviceToken callback:(RCTResponseSenderBlock)callback) {
+    [[YMChat shared] unlinkDeviceTokenWithBotId:botId apiKey:apiKey deviceToken:deviceToken success:^{
+        callback(@[@YES]);
+        } failure:^(NSString * _Nonnull failureMessage) {
+            callback(@[failureMessage]);
+        }];
+   
+}
+
+
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
     if (YMEventEmitter.shared) {
         NSMutableDictionary *dict = [NSMutableDictionary new];

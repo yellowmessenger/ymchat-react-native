@@ -11,6 +11,7 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.reactlibrary.YmChatUtils.Utils;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
+import com.yellowmessenger.ymchat.models.YellowCallback;
 
 import java.util.HashMap;
 
@@ -21,17 +22,14 @@ public class YMChatService {
 
     YMChatService(ReactApplicationContext reactContext) {
         this.ymChat = YMChat.getInstance();
-        ymChat.onEventFromBot(botEvent ->
-        {
+        ymChat.onEventFromBot(botEvent -> {
             WritableMap params = Arguments.createMap();
             params.putString("code", botEvent.getCode());
             params.putString("data", botEvent.getData());
-            reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                    .emit("YMChatEvent",params);
+            reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("YMChatEvent", params);
         });
-        ymChat.onBotClose(() ->
-                reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                        .emit("YMBotCloseEvent",null));
+        ymChat.onBotClose(() -> reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+                .emit("YMBotCloseEvent", null));
     }
 
     public void setBotId(String botId) {
@@ -76,8 +74,21 @@ public class YMChatService {
         ymChat.config.customBaseUrl = url;
     }
 
+    public void unlinkDeviceToken(String botId, String apiKey, String deviceToken, Callback callback) throws Exception {
+        ymChat.unlinkDeviceToken(botId, apiKey, deviceToken, new YellowCallback() {
+            @Override
+            public void success() {
+                callback.invoke(true);
+            }
+
+            @Override
+            public void failure(String message) {
+                callback.invoke(message);
+            }
+        });
+    }
+
     public void setPayload(ReadableMap payload) {
         ymChat.config.payload.putAll(Utils.readableMapToHashMap(payload));
     }
 }
-
