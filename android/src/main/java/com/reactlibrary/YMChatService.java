@@ -91,4 +91,8 @@ public class YMChatService {
     public void setPayload(ReadableMap payload) {
         ymChat.config.payload.putAll(Utils.readableMapToHashMap(payload));
     }
+
+    public void setVersion(int version) {
+        ymChat.config.version = version;
+    }
 }

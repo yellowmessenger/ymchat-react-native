@@ -1,7 +1,6 @@
 
 package com.reactlibrary;
 
-
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -16,7 +15,7 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     public YMChatModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
-         ymChatService= new YMChatService(reactContext);
+        ymChatService = new YMChatService(reactContext);
     }
 
     @ReactMethod
@@ -68,7 +67,6 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.customBaseUrl(url);
     }
 
-
     @ReactMethod
     public void setPayload(ReadableMap payload) {
         ymChatService.setPayload(payload);
@@ -77,6 +75,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void unlinkDeviceToken(String botId, String apiKey, String deviceToken, Callback callback) throws Exception {
         ymChatService.unlinkDeviceToken(botId, apiKey, deviceToken, callback);
+    }
+
+    @ReactMethod
+    public void setVersion(int version) {
+        ymChatService.setVersion(version);
     }
 
     @Override

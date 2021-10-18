@@ -77,6 +77,10 @@ RCT_EXPORT_METHOD(unlinkDeviceToken:(NSString *)botId apiKey:(NSString *)apiKey 
    
 }
 
+RCT_EXPORT_METHOD(setVersion:(NSInteger *) version) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.version = version;
+}
 
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
     if (YMEventEmitter.shared) {
