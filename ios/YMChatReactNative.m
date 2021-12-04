@@ -31,11 +31,6 @@ RCT_EXPORT_METHOD(setEnableSpeech:(BOOL) speech) {
     YMChat.shared.config.enableSpeech = speech;
 }
 
-RCT_EXPORT_METHOD(setEnableHistory:(BOOL) history) {
-    assert(YMChat.shared.config != nil);
-    YMChat.shared.config.enableHistory = history;
-}
-
 RCT_EXPORT_METHOD(setAuthenticationToken:(NSString *) token) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.ymAuthenticationToken = token;

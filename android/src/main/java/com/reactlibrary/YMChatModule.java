@@ -48,11 +48,6 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setEnableHistory(boolean history) {
-        ymChatService.setEnableHistory(history);
-    }
-
-    @ReactMethod
     public void setAuthenticationToken(String token) {
         ymChatService.setAuthenticationToken(token);
     }
