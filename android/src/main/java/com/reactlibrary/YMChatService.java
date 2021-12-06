@@ -58,10 +58,6 @@ public class YMChatService {
         ymChat.config.enableSpeech = speech;
     }
 
-    public void setEnableHistory(boolean history) {
-        ymChat.config.enableHistory = history;
-    }
-
     public void setAuthenticationToken(String token) {
         ymChat.config.ymAuthenticationToken = token;
     }
