@@ -77,6 +77,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.setVersion(version);
     }
 
+    @ReactMethod
+    public void setCustomLoaderURL(String url) {
+        ymChatService.setCustomLoaderUrl(url);
+    }
+
     @Override
     public String getName() {
         return "YMChat";
