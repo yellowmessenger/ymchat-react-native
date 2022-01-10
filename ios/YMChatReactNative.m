@@ -77,6 +77,11 @@ RCT_EXPORT_METHOD(setVersion:(NSInteger *) version) {
     YMChat.shared.config.version = version;
 }
 
+RCT_EXPORT_METHOD(setCustomLoaderURL:(NSString *) url) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.customLoaderUrl = url;
+}
+
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
     if (YMEventEmitter.shared) {
         NSMutableDictionary *dict = [NSMutableDictionary new];

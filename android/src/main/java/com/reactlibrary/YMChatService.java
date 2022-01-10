@@ -91,4 +91,8 @@ public class YMChatService {
     public void setVersion(int version) {
         ymChat.config.version = version;
     }
+
+    public void setCustomLoaderUrl(String url) {
+        ymChat.config.customLoaderUrl = url;
+    }
 }
