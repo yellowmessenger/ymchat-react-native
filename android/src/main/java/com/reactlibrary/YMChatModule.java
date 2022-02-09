@@ -82,6 +82,16 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.setCustomLoaderUrl(url);
     }
 
+    @ReactMethod
+    public void setStatusBarColour(String colour) {
+        ymChatService.setStatusBarColour(colour);
+    }
+
+    @ReactMethod
+    public void setCloseButtonColour(String colour) {
+        ymChatService.setCloseButtonColour(colour);
+    }
+
     @Override
     public String getName() {
         return "YMChat";
