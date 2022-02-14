@@ -83,13 +83,13 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setStatusBarColour(String colour) {
-        ymChatService.setStatusBarColour(colour);
+    public void setStatusBarColor(String color) {
+        ymChatService.setStatusBarColor(color);
     }
 
     @ReactMethod
-    public void setCloseButtonColour(String colour) {
-        ymChatService.setCloseButtonColour(colour);
+    public void setCloseButtonColor(String color) {
+        ymChatService.setCloseButtonColor(color);
     }
 
     @Override

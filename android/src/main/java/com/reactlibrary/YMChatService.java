@@ -96,11 +96,11 @@ public class YMChatService {
         ymChat.config.customLoaderUrl = url;
     }
 
-    public void setStatusBarColour(String colour) {
-        ymChat.config.statusBarColorFromHex = colour;
+    public void setStatusBarColor(String color) {
+        ymChat.config.statusBarColorFromHex = color;
     }
 
-    public void setCloseButtonColour(String colour) {
-        ymChat.config.closeButtonColorHex = colour;
+    public void setCloseButtonColor(String color) {
+        ymChat.config.closeButtonColorFromHex = color;
     }
 }

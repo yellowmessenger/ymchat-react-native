@@ -82,15 +82,15 @@ RCT_EXPORT_METHOD(setCustomLoaderURL:(NSString *) url) {
     YMChat.shared.config.customLoaderUrl = url;
 }
 
-RCT_EXPORT_METHOD(setStatusBarColour:(NSString *) colour) {
+RCT_EXPORT_METHOD(setStatusBarColor:(NSString *) color) {
     assert(YMChat.shared.config != nil);
-    YMChat.shared.config.statusBarColor = [self getColorFromHexString:colour];
+    YMChat.shared.config.statusBarColor = [self getColorFromHexString:color];
     
 }
 
-RCT_EXPORT_METHOD(setCloseButtonColour:(NSString *) colour) {
+RCT_EXPORT_METHOD(setCloseButtonColor:(NSString *) color) {
     assert(YMChat.shared.config != nil);
-    YMChat.shared.config.closeButtonColor = [self getColorFromHexString:colour];
+    YMChat.shared.config.closeButtonColor = [self getColorFromHexString:color];
 }
 
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
