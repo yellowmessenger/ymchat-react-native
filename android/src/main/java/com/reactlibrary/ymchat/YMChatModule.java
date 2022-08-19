@@ -1,5 +1,5 @@
 
-package com.reactlibrary;
+package com.reactlibrary.ymchat;
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;

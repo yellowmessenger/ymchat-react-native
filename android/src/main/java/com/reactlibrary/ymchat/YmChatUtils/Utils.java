@@ -1,4 +1,4 @@
-package com.reactlibrary.YmChatUtils;
+package com.reactlibrary.ymchat.YmChatUtils;
 
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
