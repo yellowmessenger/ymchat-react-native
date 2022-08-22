@@ -1,4 +1,4 @@
-package com.reactlibrary.YmChatUtils;
+package com.reactlibrary.ymchat.YmChatUtils;
 
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
@@ -16,7 +16,7 @@ public class Utils {
         while (keySetIterator.hasNextKey()) {
             String key = keySetIterator.nextKey();
             ReadableType type = readableMap.getType(key);
-            switch(type) {
+            switch (type) {
                 case String:
                     map.put(key, readableMap.getString(key));
                     break;
