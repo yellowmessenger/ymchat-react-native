@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.reactlibrary.ymchat;
 
 import android.content.Context;
 
@@ -8,7 +8,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
-import com.reactlibrary.YmChatUtils.Utils;
+import com.reactlibrary.ymchat.YmChatUtils.Utils;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
 import com.yellowmessenger.ymchat.models.YellowCallback;
