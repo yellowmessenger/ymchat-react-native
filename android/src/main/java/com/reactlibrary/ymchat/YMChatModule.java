@@ -91,6 +91,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.setCloseButtonColor(color);
     }
 
+    @ReactMethod
+    public void setDisableActionsOnLoad(boolean shouldDisableActionsOnLoad) {
+        ymChatService.setDisableActionsOnLoad(shouldDisableActionsOnLoad);
+    }
+
     @Override
     public String getName() {
         return "YMChat";

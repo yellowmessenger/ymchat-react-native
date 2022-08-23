@@ -103,4 +103,9 @@ public class YMChatService {
     public void setCloseButtonColor(String color) {
         ymChat.config.closeButtonColorFromHex = color;
     }
+
+    public void setDisableActionsOnLoad(boolean shouldDisableActionsOnLoad) {
+        ymChat.config.disableActionsOnLoad = shouldDisableActionsOnLoad;
+    }
+
 }
