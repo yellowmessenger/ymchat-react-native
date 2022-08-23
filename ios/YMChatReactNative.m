@@ -93,6 +93,11 @@ RCT_EXPORT_METHOD(setCloseButtonColor:(NSString *) color) {
     YMChat.shared.config.closeButtonColor = [self getColorFromHexString:color];
 }
 
+RCT_EXPORT_METHOD(setDisableActionsOnLoad:(BOOL) shouldDisableActionsOnLoad) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.disableActionsOnLoad = shouldDisableActionsOnLoad;
+}
+
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
     if (YMEventEmitter.shared) {
         NSMutableDictionary *dict = [NSMutableDictionary new];
