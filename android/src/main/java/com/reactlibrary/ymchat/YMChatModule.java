@@ -1,5 +1,4 @@
-
-package com.reactlibrary;
+package com.reactlibrary.ymchat;
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -90,6 +89,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void setCloseButtonColor(String color) {
         ymChatService.setCloseButtonColor(color);
+    }
+
+    @ReactMethod
+    public void setDisableActionsOnLoad(boolean shouldDisableActionsOnLoad) {
+        ymChatService.setDisableActionsOnLoad(shouldDisableActionsOnLoad);
     }
 
     @Override
