@@ -84,6 +84,48 @@ public class YMChatService {
         });
     }
 
+    public void unlinkDeviceToken(String apiKey, YMConfig ymConfig, Callback callback) throws Exception {
+        ymChat.unlinkDeviceToken(apiKey, ymConfig, new YellowCallback() {
+            @Override
+            public void success() {
+                callback.invoke(true);
+            }
+
+            @Override
+            public void failure(String message) {
+                callback.invoke(message);
+            }
+        });
+    }
+
+    public void registerDevice(String apiKey, YMConfig ymConfig, Callback callback) throws Exception {
+        ymChat.registerDevice(apiKey, ymConfig, new YellowCallback() {
+            @Override
+            public void success() {
+                callback.invoke(true);
+            }
+
+            @Override
+            public void failure(String message) {
+                callback.invoke(message);
+            }
+        });
+    }
+
+    public void getUnreadMessagesCount(YMConfig ymConfig, Callback callback) throws Exception {
+        ymChat.getUnreadMessagesCount(ymConfig, new YellowCallback() {
+            @Override
+            public void success(String count) {
+                callback.invoke(count);
+            }
+
+            @Override
+            public void failure(String message) {
+                callback.invoke(message);
+            }
+        });
+    }
+
     public void setPayload(ReadableMap payload) {
         ymChat.config.payload.putAll(Utils.readableMapToHashMap(payload));
     }
@@ -108,4 +150,7 @@ public class YMChatService {
         ymChat.config.disableActionsOnLoad = shouldDisableActionsOnLoad;
     }
 
+    public void setUseLiteVersion(boolean useLiteVersion) {
+        ymChat.config.useLiteVersion = useLiteVersion;
+    }
 }
