@@ -72,6 +72,33 @@ RCT_EXPORT_METHOD(unlinkDeviceToken:(NSString *)botId apiKey:(NSString *)apiKey 
    
 }
 
+RCT_EXPORT_METHOD(unlinkDeviceToken:(NSString *)apiKey callback:(RCTResponseSenderBlock)callback) {
+    assert(YMChat.shared.config != nil);
+    [[YMChat shared] unlinkDeviceTokenWithApiKey:apiKey ymConfig:YMChat.shared.config success:^{
+        callback(@[@YES]);
+        } failure:^(NSString * _Nonnull failureMessage) {
+            callback(@[failureMessage]);
+        }];
+}
+
+RCT_EXPORT_METHOD(registerDeviceWithApiKey:(NSString *)apiKey callback:(RCTResponseSenderBlock)callback) {
+    assert(YMChat.shared.config != nil);
+    [[YMChat shared] registerDeviceWithApiKey:apiKey ymConfig:YMChat.shared.config success:^{
+        callback(@[@YES]);
+        } failure:^(NSString * _Nonnull failureMessage) {
+            callback(@[failureMessage]);
+        }];
+}
+
+RCT_EXPORT_METHOD(getUnreadMessagesCountWithYmConfig:(NSString *)apiKey callback:(RCTResponseSenderBlock)callback) {
+    assert(YMChat.shared.config != nil);
+    [[YMChat shared] getUnreadMessagesCountWithYmConfig:YMChat.shared.config success:^(NSString * _Nonnull count){
+        callback(@[count]);
+        } failure:^(NSString * _Nonnull failureMessage) {
+            callback(@[failureMessage]);
+        }];
+}
+
 RCT_EXPORT_METHOD(setVersion:(NSInteger *) version) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.version = version;
