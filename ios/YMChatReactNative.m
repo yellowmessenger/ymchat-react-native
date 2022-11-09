@@ -72,30 +72,6 @@ RCT_EXPORT_METHOD(unlinkDeviceToken:(NSString *)botId apiKey:(NSString *)apiKey 
    
 }
 
-RCT_EXPORT_METHOD(unlinkDeviceToken:(NSString *)apiKey ymConfig:(YMConfig *)ymConfig callback:(RCTResponseSenderBlock)callback) {
-    [[YMChat shared] unlinkDeviceTokenWithApiKey:apiKey ymConfig:ymConfig success:^{
-        callback(@[@YES]);
-        } failure:^(NSString * _Nonnull failureMessage) {
-            callback(@[failureMessage]);
-        }];
-}
-
-RCT_EXPORT_METHOD(registerDeviceWithApiKey:(NSString *)apiKey ymConfig:(YMConfig *)ymConfig callback:(RCTResponseSenderBlock)callback) {
-    [[YMChat shared] registerDeviceWithApiKey:apiKey ymConfig:ymConfig success:^{
-        callback(@[@YES]);
-        } failure:^(NSString * _Nonnull failureMessage) {
-            callback(@[failureMessage]);
-        }];
-}
-
-RCT_EXPORT_METHOD(getUnreadMessagesCountWithYmConfig:(NSString *)apiKey ymConfig:(YMConfig *)ymConfig callback:(RCTResponseSenderBlock)callback) {
-    [[YMChat shared] getUnreadMessagesCountWithYmConfig:ymConfig success:^(NSString * _Nonnull count){
-        callback(@[count]);
-        } failure:^(NSString * _Nonnull failureMessage) {
-            callback(@[failureMessage]);
-        }];
-}
-
 RCT_EXPORT_METHOD(useLiteVersion:(BOOL) useLiteVersion) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.useLiteVersion = useLiteVersion;

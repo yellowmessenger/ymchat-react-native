@@ -67,21 +67,6 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void unlinkDeviceToken(String botId, String apiKey, String deviceToken, Callback callback) throws Exception {
-        ymChatService.unlinkDeviceToken(botId, apiKey, deviceToken, callback);
-    }
-
-    @ReactMethod
-    public void unlinkDeviceToken(String apiKey, YMConfig ymConfig, Callback callback) throws Exception {
-        ymChatService.unlinkDeviceToken(apiKey, ymConfig, callback);
-    }
-
-    @ReactMethod
-    public void registerDevice(String apiKey, YMConfig ymConfig, Callback callback) throws Exception {
-        ymChatService.registerDevice(apiKey, ymConfigm callback);
-    }
-
-    @ReactMethod
     public void getUnreadMessagesCount(YMConfig ymConfig, Callback callback) throws Exception {
         ymChatService.getUnreadMessagesCount(ymConfig, callback);
     }
