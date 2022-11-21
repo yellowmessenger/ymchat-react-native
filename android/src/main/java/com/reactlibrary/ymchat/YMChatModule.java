@@ -97,8 +97,8 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setUseLiteVersion(boolean useLiteVersion) {
-        ymChatService.setUseLiteVersion(useLiteVersion);
+    public void useLiteVersion(boolean shouldUseLiteVersion) {
+        ymChatService.useLiteVersion(shouldUseLiteVersion);
     }
 
     @Override

@@ -72,9 +72,9 @@ RCT_EXPORT_METHOD(unlinkDeviceToken:(NSString *)botId apiKey:(NSString *)apiKey 
    
 }
 
-RCT_EXPORT_METHOD(useLiteVersion:(BOOL) useLiteVersion) {
+RCT_EXPORT_METHOD(useLiteVersion:(BOOL) shouldUseLiteVersion) {
     assert(YMChat.shared.config != nil);
-    YMChat.shared.config.useLiteVersion = useLiteVersion;
+    YMChat.shared.config.useLiteVersion = shouldUseLiteVersion;
 }
 
 RCT_EXPORT_METHOD(setVersion:(NSInteger *) version) {
