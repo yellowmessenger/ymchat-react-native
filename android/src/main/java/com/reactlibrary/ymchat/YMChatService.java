@@ -86,35 +86,43 @@ public class YMChatService {
         });
     }
 
-    public void registerDevice(String apiKey, Callback callback) throws Exception {
-        ymChat.registerDevice(apiKey, ymChat.config, new YellowCallback() {
-            @Override
-            public void success() {
-                callback.invoke(true);
-            }
+    public void registerDevice(String apiKey, Callback callback) {
+        try {
+            ymChat.registerDevice(apiKey, ymChat.config, new YellowCallback() {
+                @Override
+                public void success() {
+                    callback.invoke(true);
+                }
 
-            @Override
-            public void failure(String message) {
-                callback.invoke(message);
-            }
-        });
+                @Override
+                public void failure(String message) {
+                    callback.invoke(message);
+                }
+            });
+        } catch (Exception e) {
+            callback.invoke(e.getMessage());
+        }
     }
 
-    public void getUnreadMessagesCount(Callback callback) throws Exception {
-        ymChat.getUnreadMessagesCount(ymChat.config, new YellowDataCallback() {
-            @Override
-            public <T> void success(T data) {
-                YellowUnreadMessageResponse response = (YellowUnreadMessageResponse) data;
-                callback.invoke(response.getUnreadCount());
-            }
+    public void getUnreadMessagesCount(Callback callback) {
+        try {
+            ymChat.getUnreadMessagesCount(ymChat.config, new YellowDataCallback() {
+                @Override
+                public <T> void success(T data) {
+                    YellowUnreadMessageResponse response = (YellowUnreadMessageResponse) data;
+                    callback.invoke(response.getUnreadCount());
+                }
 
-            @Override
-            public void failure(String message) {
-                HashMap<String, String> errorObject = new HashMap<String, String>();
-                errorObject.put("error", message);
-                callback.invoke(errorObject);
-            }
-        });
+                @Override
+                public void failure(String message) {
+                    HashMap<String, String> errorObject = new HashMap<String, String>();
+                    errorObject.put("error", message);
+                    callback.invoke(errorObject);
+                }
+            });
+        } catch (Exception e) {
+            callback.invoke(e.getMessage());
+        }
     }
 
     public void setPayload(ReadableMap payload) {
