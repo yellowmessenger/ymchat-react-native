@@ -72,7 +72,7 @@ RCT_EXPORT_METHOD(unlinkDeviceToken:(NSString *)botId apiKey:(NSString *)apiKey 
    
 }
 
-RCT_EXPORT_METHOD(registerDeviceWithApiKey:(NSString *)apiKey callback:(RCTResponseSenderBlock)callback) {
+RCT_EXPORT_METHOD(registerDevice:(NSString *)apiKey callback:(RCTResponseSenderBlock)callback) {
     assert(YMChat.shared.config != nil);
     [[YMChat shared] registerDeviceWithApiKey:apiKey ymConfig:YMChat.shared.config success:^{
         callback(@[@YES]);
@@ -81,7 +81,7 @@ RCT_EXPORT_METHOD(registerDeviceWithApiKey:(NSString *)apiKey callback:(RCTRespo
         }];
 }
 
-RCT_EXPORT_METHOD(getUnreadMessagesCountWithYmConfig:(NSString *)apiKey callback:(RCTResponseSenderBlock)callback) {
+RCT_EXPORT_METHOD(getUnreadMessagesCount:(RCTResponseSenderBlock)callback) {
     assert(YMChat.shared.config != nil);
     [[YMChat shared] getUnreadMessagesCountWithYmConfig:YMChat.shared.config success:^(NSString * _Nonnull count){
         callback(@[count]);
