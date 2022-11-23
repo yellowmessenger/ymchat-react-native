@@ -72,15 +72,6 @@ RCT_EXPORT_METHOD(unlinkDeviceToken:(NSString *)botId apiKey:(NSString *)apiKey 
    
 }
 
-RCT_EXPORT_METHOD(unlinkDeviceToken:(NSString *)apiKey callback:(RCTResponseSenderBlock)callback) {
-    assert(YMChat.shared.config != nil);
-    [[YMChat shared] unlinkDeviceTokenWithApiKey:apiKey ymConfig:YMChat.shared.config success:^{
-        callback(@[@YES]);
-        } failure:^(NSString * _Nonnull failureMessage) {
-            callback(@[failureMessage]);
-        }];
-}
-
 RCT_EXPORT_METHOD(registerDeviceWithApiKey:(NSString *)apiKey callback:(RCTResponseSenderBlock)callback) {
     assert(YMChat.shared.config != nil);
     [[YMChat shared] registerDeviceWithApiKey:apiKey ymConfig:YMChat.shared.config success:^{
