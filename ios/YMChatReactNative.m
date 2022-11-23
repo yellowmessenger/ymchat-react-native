@@ -85,9 +85,14 @@ RCT_EXPORT_METHOD(getUnreadMessagesCountWithYmConfig:(NSString *)apiKey callback
     assert(YMChat.shared.config != nil);
     [[YMChat shared] getUnreadMessagesCountWithYmConfig:YMChat.shared.config success:^(NSString * _Nonnull count){
         callback(@[count]);
-        } failure:^(NSString * _Nonnull failureMessage) {
-            callback(@[failureMessage]);
-        }];
+    } failure:^(NSString * _Nonnull failureMessage) {
+        callback(@[failureMessage]);
+    }];
+}
+
+RCT_EXPORT_METHOD(useLiteVersion:(BOOL) shouldUseLiteVersion) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.useLiteVersion = shouldUseLiteVersion;
 }
 
 RCT_EXPORT_METHOD(setVersion:(NSInteger *) version) {

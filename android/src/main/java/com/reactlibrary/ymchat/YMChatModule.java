@@ -106,6 +106,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.setDisableActionsOnLoad(shouldDisableActionsOnLoad);
     }
 
+    @ReactMethod
+    public void useLiteVersion(boolean shouldUseLiteVersion) {
+        ymChatService.useLiteVersion(shouldUseLiteVersion);
+    }
+
     @Override
     public String getName() {
         return "YMChat";
