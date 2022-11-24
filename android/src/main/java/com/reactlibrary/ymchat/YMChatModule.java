@@ -72,6 +72,16 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void registerDevice(String apiKey, Callback callback) throws Exception {
+        ymChatService.registerDevice(apiKey, callback);
+    }
+
+    @ReactMethod
+    public void getUnreadMessagesCount(Callback callback) throws Exception {
+        ymChatService.getUnreadMessagesCount(callback);
+    }
+
+    @ReactMethod
     public void setVersion(int version) {
         ymChatService.setVersion(version);
     }

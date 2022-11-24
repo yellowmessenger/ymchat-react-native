@@ -72,6 +72,24 @@ RCT_EXPORT_METHOD(unlinkDeviceToken:(NSString *)botId apiKey:(NSString *)apiKey 
    
 }
 
+RCT_EXPORT_METHOD(registerDevice:(NSString *)apiKey callback:(RCTResponseSenderBlock)callback) {
+    assert(YMChat.shared.config != nil);
+    [[YMChat shared] registerDeviceWithApiKey:apiKey ymConfig:YMChat.shared.config success:^{
+        callback(@[@YES]);
+        } failure:^(NSString * _Nonnull failureMessage) {
+            callback(@[failureMessage]);
+        }];
+}
+
+RCT_EXPORT_METHOD(getUnreadMessagesCount:(RCTResponseSenderBlock)callback) {
+    assert(YMChat.shared.config != nil);
+    [[YMChat shared] getUnreadMessagesCountWithYmConfig:YMChat.shared.config success:^(NSString * _Nonnull count){
+        callback(@[count]);
+    } failure:^(NSString * _Nonnull failureMessage) {
+        callback(@[failureMessage]);
+    }];
+}
+
 RCT_EXPORT_METHOD(useLiteVersion:(BOOL) shouldUseLiteVersion) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.useLiteVersion = shouldUseLiteVersion;

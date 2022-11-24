@@ -12,6 +12,8 @@ import com.reactlibrary.ymchat.YmChatUtils.Utils;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
 import com.yellowmessenger.ymchat.models.YellowCallback;
+import com.yellowmessenger.ymchat.models.YellowDataCallback;
+import com.yellowmessenger.ymchat.models.YellowUnreadMessageResponse;
 
 import java.util.HashMap;
 
@@ -82,6 +84,45 @@ public class YMChatService {
                 callback.invoke(message);
             }
         });
+    }
+
+    public void registerDevice(String apiKey, Callback callback) {
+        try {
+            ymChat.registerDevice(apiKey, ymChat.config, new YellowCallback() {
+                @Override
+                public void success() {
+                    callback.invoke(true);
+                }
+
+                @Override
+                public void failure(String message) {
+                    callback.invoke(message);
+                }
+            });
+        } catch (Exception e) {
+            callback.invoke(e.getMessage());
+        }
+    }
+
+    public void getUnreadMessagesCount(Callback callback) {
+        try {
+            ymChat.getUnreadMessagesCount(ymChat.config, new YellowDataCallback() {
+                @Override
+                public <T> void success(T data) {
+                    YellowUnreadMessageResponse response = (YellowUnreadMessageResponse) data;
+                    callback.invoke(response.getUnreadCount());
+                }
+
+                @Override
+                public void failure(String message) {
+                    HashMap<String, String> errorObject = new HashMap<String, String>();
+                    errorObject.put("error", message);
+                    callback.invoke(errorObject);
+                }
+            });
+        } catch (Exception e) {
+            callback.invoke(e.getMessage());
+        }
     }
 
     public void setPayload(ReadableMap payload) {
