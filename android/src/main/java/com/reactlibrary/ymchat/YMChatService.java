@@ -52,7 +52,6 @@ public class YMChatService {
         ymChat.closeBot();
     }
 
-    @ReactMethod
     public void reloadBot() {
         ymChat.reloadBot();
     }
