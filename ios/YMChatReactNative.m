@@ -26,6 +26,11 @@ RCT_EXPORT_METHOD(closeBot) {
     [[YMChat shared] closeBot];
 }
 
+RCT_EXPORT_METHOD(reloadBot) {
+    assert(YMChat.shared.config != nil && YMChat.shared.viewController != nil);
+    [[YMChat shared] reloadBotAndReturnError: nil];
+}
+
 RCT_EXPORT_METHOD(setEnableSpeech:(BOOL) speech) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.enableSpeech = speech;
