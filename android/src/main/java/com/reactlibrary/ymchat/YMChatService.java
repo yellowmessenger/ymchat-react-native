@@ -156,4 +156,12 @@ public class YMChatService {
     public void useLiteVersion(boolean shouldUseLiteVersion) {
         ymChat.config.useLiteVersion = shouldUseLiteVersion;
     }
+
+    public void setMicIconColor(String color) {
+        ymChat.config.enableSpeechConfig.fabIconColor = color;
+    }
+
+    public void setMicBackgroundColor(String color) {
+        ymChat.config.enableSpeechConfig.fabBackgroundColor = color;
+    }
 }
