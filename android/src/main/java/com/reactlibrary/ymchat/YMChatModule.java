@@ -116,6 +116,16 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.useLiteVersion(shouldUseLiteVersion);
     }
 
+    @ReactMethod
+    public void setMicIconColor(String color) {
+        ymChatService.setMicIconColor(color);
+    }
+
+    @ReactMethod
+    public void setMicBackgroundColor(String color) {
+        ymChatService.setMicBackgroundColor(color);
+    }
+
     @Override
     public String getName() {
         return "YMChat";

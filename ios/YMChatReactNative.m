@@ -126,6 +126,16 @@ RCT_EXPORT_METHOD(setDisableActionsOnLoad:(BOOL) shouldDisableActionsOnLoad) {
     YMChat.shared.config.disableActionsOnLoad = shouldDisableActionsOnLoad;
 }
 
+RCT_EXPORT_METHOD(setMicIconColor:(NSString *) color) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.enableSpeechConfig.fabIconColor = [self getColorFromHexString:color];
+}
+
+RCT_EXPORT_METHOD(setMicBackgroundColor:(NSString *) color) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.enableSpeechConfig.fabBackgroundColor = [self getColorFromHexString:color];
+}
+
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
     if (YMEventEmitter.shared) {
         NSMutableDictionary *dict = [NSMutableDictionary new];
