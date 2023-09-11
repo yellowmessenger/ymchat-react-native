@@ -164,4 +164,8 @@ public class YMChatService {
     public void setMicBackgroundColor(String color) {
         ymChat.config.enableSpeechConfig.fabBackgroundColor = color;
     }
+
+    public void useSecureYmAuth(boolean shouldUseSecureYmAuth) {
+        ymChat.config.useSecureYmAuth = shouldUseSecureYmAuth;
+    }
 }

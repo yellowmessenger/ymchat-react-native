@@ -126,6 +126,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.setMicBackgroundColor(color);
     }
 
+    @ReactMethod
+    public void useSecureYmAuth(boolean shouldUseSecureYmAuth) {
+        ymChatService.useSecureYmAuth(shouldUseSecureYmAuth);
+    }
+
     @Override
     public String getName() {
         return "YMChat";

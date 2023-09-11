@@ -136,6 +136,11 @@ RCT_EXPORT_METHOD(setMicBackgroundColor:(NSString *) color) {
     YMChat.shared.config.enableSpeechConfig.fabBackgroundColor = [self getColorFromHexString:color];
 }
 
+RCT_EXPORT_METHOD(useSecureYmAuth:(BOOL) shouldUseSecureYmAuth) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.useSecureYmAuth = shouldUseSecureYmAuth;
+}
+
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
     if (YMEventEmitter.shared) {
         NSMutableDictionary *dict = [NSMutableDictionary new];
