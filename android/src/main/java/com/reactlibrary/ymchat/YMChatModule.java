@@ -42,6 +42,15 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void revalidateToken(String token, boolean refreshSession) {
+        try {
+            ymChatService.startChatbot(token, refreshSession);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @ReactMethod
     public void setDeviceToken(String token) {
         ymChatService.setDeviceToken(token);
     }
