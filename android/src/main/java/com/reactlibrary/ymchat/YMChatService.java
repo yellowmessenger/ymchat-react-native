@@ -56,6 +56,14 @@ public class YMChatService {
         ymChat.reloadBot();
     }
 
+    public void revalidateToken(String token, boolean refreshSession) {
+        try {
+            ymChat.revalidateToken(token, refreshSession);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void setDeviceToken(String token) {
         ymChat.config.deviceToken = token;
     }
@@ -163,5 +171,9 @@ public class YMChatService {
 
     public void setMicBackgroundColor(String color) {
         ymChat.config.enableSpeechConfig.fabBackgroundColor = color;
+    }
+
+    public void useSecureYmAuth(boolean shouldUseSecureYmAuth) {
+        ymChat.config.useSecureYmAuth = shouldUseSecureYmAuth;
     }
 }
