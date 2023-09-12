@@ -14,6 +14,7 @@ import com.yellowmessenger.ymchat.YMConfig;
 import com.yellowmessenger.ymchat.models.YellowCallback;
 import com.yellowmessenger.ymchat.models.YellowDataCallback;
 import com.yellowmessenger.ymchat.models.YellowUnreadMessageResponse;
+import com.yellowmessenger.ymchat.models.YMEventModel;
 
 import java.util.HashMap;
 
@@ -59,6 +60,15 @@ public class YMChatService {
     public void revalidateToken(String token, boolean refreshSession) {
         try {
             ymChat.revalidateToken(token, refreshSession);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendEventToBot(String code, ReadableMap data)  {
+        try {
+            YMEventModel model = new YMEventModel(code, Utils.readableMapToHashMap(data));
+            ymChat.sendEventToBot(model);
         } catch (Exception e) {
             e.printStackTrace();
         }
