@@ -42,6 +42,15 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void revalidateToken(String token, boolean refreshSession) {
+        try {
+            ymChatService.revalidateToken(token, refreshSession);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @ReactMethod
     public void setDeviceToken(String token) {
         ymChatService.setDeviceToken(token);
     }
@@ -124,6 +133,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void setMicBackgroundColor(String color) {
         ymChatService.setMicBackgroundColor(color);
+    }
+
+    @ReactMethod
+    public void useSecureYmAuth(boolean shouldUseSecureYmAuth) {
+        ymChatService.useSecureYmAuth(shouldUseSecureYmAuth);
     }
 
     @Override

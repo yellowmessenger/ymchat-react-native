@@ -31,6 +31,11 @@ RCT_EXPORT_METHOD(reloadBot) {
     [[YMChat shared] reloadBotAndReturnError: nil];
 }
 
+RCT_EXPORT_METHOD(revalidateToken:(NSString *)token refreshSession:(BOOL)refreshSession) {
+    assert(YMChat.shared.config != nil && YMChat.shared.viewController != nil);
+    [[YMChat shared] revalidateTokenWithToken:token refreshSession:refreshSession error:nil];
+}
+
 RCT_EXPORT_METHOD(setEnableSpeech:(BOOL) speech) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.enableSpeech = speech;
@@ -134,6 +139,11 @@ RCT_EXPORT_METHOD(setMicIconColor:(NSString *) color) {
 RCT_EXPORT_METHOD(setMicBackgroundColor:(NSString *) color) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.enableSpeechConfig.fabBackgroundColor = [self getColorFromHexString:color];
+}
+
+RCT_EXPORT_METHOD(useSecureYmAuth:(BOOL) shouldUseSecureYmAuth) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.useSecureYmAuth = shouldUseSecureYmAuth;
 }
 
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
