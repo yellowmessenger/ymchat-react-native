@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
   s.swift_version = "5.0"
 
   s.dependency "React"
-  s.dependency "YMChat", "~> 1.13"
+  s.dependency "YMChat", "~> 1.14.1"
 
 end

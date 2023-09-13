@@ -36,6 +36,13 @@ RCT_EXPORT_METHOD(revalidateToken:(NSString *)token refreshSession:(BOOL)refresh
     [[YMChat shared] revalidateTokenWithToken:token refreshSession:refreshSession error:nil];
 }
 
+RCT_EXPORT_METHOD(sendEventToBot:(NSString *)code data:(NSDictionary *)data) {
+    assert(YMChat.shared.config != nil && YMChat.shared.viewController != nil);
+    
+    YMEventModel *event = [[YMEventModel alloc] initWithCode:code data:data];
+    [[YMChat shared] sendEventToBotWithEvent:event error:nil];
+}
+
 RCT_EXPORT_METHOD(setEnableSpeech:(BOOL) speech) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.enableSpeech = speech;
