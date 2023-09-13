@@ -51,6 +51,15 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void sendEventToBot(String code, ReadableMap data) {
+        try {
+            ymChatService.sendEventToBot(code, data);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @ReactMethod
     public void setDeviceToken(String token) {
         ymChatService.setDeviceToken(token);
     }
