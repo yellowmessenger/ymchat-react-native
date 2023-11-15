@@ -186,4 +186,34 @@ public class YMChatService {
     public void useSecureYmAuth(boolean shouldUseSecureYmAuth) {
         ymChat.config.useSecureYmAuth = shouldUseSecureYmAuth;
     }
+
+    public void setThemeBotName(String name) {
+        if (ymChat.config.theme == null) { ymchat.config.theme = new YMTheme(); }
+        ymChat.config.theme.botName = name;
+    }
+
+    public void setThemeBotDescription(String description) {
+        if (ymChat.config.theme == null) { ymchat.config.theme = new YMTheme(); }
+        ymChat.config.theme.botDesc = description;
+    }
+
+    public void setThemePrimaryColor(String color) {
+        if (ymChat.config.theme == null) { ymchat.config.theme = new YMTheme(); }
+        ymChat.config.theme.primaryColor = color;
+    }
+
+    public void setThemeSecondaryColor(String color) {
+        if (ymChat.config.theme == null) { ymchat.config.theme = new YMTheme(); }
+        ymChat.config.theme.secondaryColor = color;
+    }
+
+    public void setThemeBotIcon(String iconUrl) {
+        if (ymChat.config.theme == null) { ymchat.config.theme = new YMTheme(); }
+        ymChat.config.theme.botIcon = iconUrl;
+    }
+
+    public void setThemeBotClickIcon(String iconUrl) {
+        if (ymChat.config.theme == null) { ymchat.config.theme = new YMTheme(); }
+        ymChat.config.theme.botClickIcon = iconUrl;
+    }
 }
