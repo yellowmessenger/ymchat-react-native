@@ -155,38 +155,38 @@ RCT_EXPORT_METHOD(useSecureYmAuth:(BOOL) shouldUseSecureYmAuth) {
 
 RCT_EXPORT_METHOD(setThemeBotName:(NSString *) name) {
     assert(YMChat.shared.config != nil);
-    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = YMTheme(); } 
-    YMChat.shared.config.theme?.botName = name;
+    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = [[YMTheme alloc] init]; }
+    YMChat.shared.config.theme.botName = name;
 }
 
 RCT_EXPORT_METHOD(setThemeBotDescription:(NSString *) description) {
     assert(YMChat.shared.config != nil);
-    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = YMTheme(); } 
-    YMChat.shared.config.theme?.botDescription = botName;
+    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = [[YMTheme alloc] init]; }
+    YMChat.shared.config.theme.botDescription = description;
 }
 
 RCT_EXPORT_METHOD(setThemePrimaryColor:(NSString *) color) {
     assert(YMChat.shared.config != nil);
-    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = YMTheme(); } 
-    YMChat.shared.config.theme?.primaryColor = [self getColorFromHexString:color];
+    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = [[YMTheme alloc] init]; }
+    YMChat.shared.config.theme.primaryColor = [self getColorFromHexString:color];
 }
 
 RCT_EXPORT_METHOD(setThemeSecondaryColor:(NSString *) color) {
     assert(YMChat.shared.config != nil);
-    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = YMTheme(); } 
-    YMChat.shared.config.theme?.secondaryColor = [self getColorFromHexString:color];
+    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = [[YMTheme alloc] init]; }
+    YMChat.shared.config.theme.secondaryColor = [self getColorFromHexString:color];
 }
 
 RCT_EXPORT_METHOD(setThemeBotIcon:(NSString *) iconUrl) {
     assert(YMChat.shared.config != nil);
-    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = YMTheme(); } 
-    YMChat.shared.config.theme?.botIcon = iconUrl;
+    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = [[YMTheme alloc] init]; }
+    YMChat.shared.config.theme.botIcon = iconUrl;
 }
 
 RCT_EXPORT_METHOD(setThemeBotClickIcon:(NSString *) iconUrl) {
     assert(YMChat.shared.config != nil);
-    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = YMTheme(); } 
-    YMChat.shared.config.theme?.botClickIcon = iconUrl;
+    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = [[YMTheme alloc] init]; }
+    YMChat.shared.config.theme.botClickIcon = iconUrl;
 }
 
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
