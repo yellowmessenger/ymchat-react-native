@@ -10,7 +10,7 @@
     "react-native"
   ],
   "homepage": "https://yellow.ai",
-  "author": "kaunteya",
+  "author": "sankalp",
   "license": "MIT",
   "peerDependencies": {
     "react-native": ">=0.41.2"
