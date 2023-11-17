@@ -149,6 +149,36 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.useSecureYmAuth(shouldUseSecureYmAuth);
     }
 
+    @ReactMethod
+    public void setThemeBotName(String name) {
+        ymChatService.setThemeBotName(name);
+    }
+
+    @ReactMethod
+    public void setThemeBotDescription(String description) {
+        ymChatService.setThemeBotDescription(description);
+    }
+
+    @ReactMethod
+    public void setThemePrimaryColor(String color) {
+        ymChatService.setThemePrimaryColor(color);
+    }
+
+    @ReactMethod
+    public void setThemeSecondaryColor(String color) {
+        ymChatService.setThemeSecondaryColor(color);
+    }
+
+    @ReactMethod
+    public void setThemeBotIcon(String iconUrl) {
+        ymChatService.setThemeBotIcon(iconUrl);
+    }
+
+    @ReactMethod
+    public void setThemeBotClickIcon(String iconUrl) {
+        ymChatService.setThemeBotClickIcon(iconUrl);
+    }
+
     @Override
     public String getName() {
         return "YMChat";

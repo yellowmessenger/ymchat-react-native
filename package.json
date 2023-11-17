@@ -1,6 +1,6 @@
 {
   "name": "ymchat-react-native",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "react-native"
   ],
   "homepage": "https://yellow.ai",
-  "author": "kaunteya",
+  "author": "sankalp",
   "license": "MIT",
   "peerDependencies": {
     "react-native": ">=0.41.2"
