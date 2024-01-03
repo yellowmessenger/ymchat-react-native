@@ -6,9 +6,9 @@ Pod::Spec.new do |s|
   s.name         = "ymchat-react-native"
   s.version      =  package['version']
   s.summary      = "React native bridge for YMChat"
-  s.homepage     = "https://yellowmessenger.com"
+  s.homepage     = "https://yellow.ai"
   s.license      = "MIT"
-  s.author       = { "kaunteya" => "kaunteya@yellowmessenger.com" }
+  s.author       = { "sankalp" => "sankalp.gupta@yellow.ai" }
   s.platform     = :ios, "11.0"
   s.source       = { :git => "https://github.com/yellowmessenger/ymchat-react-native.git", :tag => "master" }
   s.source_files  = "ios/*.{h,m}"
@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
   s.swift_version = "5.0"
 
   s.dependency "React"
-  s.dependency "YMChat", "~> 1.15"
+  s.dependency "YMChat", "~> 1.16"
 
 end
