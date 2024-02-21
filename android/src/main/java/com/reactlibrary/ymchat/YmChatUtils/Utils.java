@@ -1,7 +1,6 @@
 package com.reactlibrary.ymchat.YmChatUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
@@ -28,6 +27,9 @@ public class Utils {
                 case Boolean:
                     map.put(key, readableMap.getBoolean(key) ? true : false);
                     break;
+                case Number:
+                    map.put(key, readableMap.getDouble(key));
+                    break;
                 case Array:
                     ReadableArray array = readableMap.getArray(key);
                     ArrayList<Object> arrayList = new ArrayList<>();
@@ -41,6 +43,9 @@ public class Utils {
                                 break;
                             case Boolean:
                                 arrayList.add(array.getBoolean(i) ? true : false);
+                                break;
+                            case Number:
+                                arrayList.add(array.getDouble(i));
                                 break;
                             case Array:
                                 arrayList.add(parseNestedArray(array.getArray(i)));
@@ -72,6 +77,9 @@ public class Utils {
                     break;
                 case Boolean:
                     nestedArrayList.add(array.getBoolean(i) ? true : false);
+                    break;
+                case Number:
+                    nestedArrayList.add(array.getDouble(i));
                     break;
                 case Array:
                     nestedArrayList.add(parseNestedArray(array.getArray(i)));
