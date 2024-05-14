@@ -170,6 +170,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void setThemeBotBubbleBackgroundColor(String color) {
+        ymChatService.setThemeBotBubbleBackgroundColor(color);
+    }
+
+    @ReactMethod
     public void setThemeBotIcon(String iconUrl) {
         ymChatService.setThemeBotIcon(iconUrl);
     }
