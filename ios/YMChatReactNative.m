@@ -177,6 +177,12 @@ RCT_EXPORT_METHOD(setThemeSecondaryColor:(NSString *) color) {
     YMChat.shared.config.theme.secondaryColor = [self getColorFromHexString:color];
 }
 
+RCT_EXPORT_METHOD(setThemeBotBubbleBackgroundColor:(NSString *) color) {
+    assert(YMChat.shared.config != nil);
+    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = [[YMTheme alloc] init]; }
+    YMChat.shared.config.theme.botBubbleBackgroundColor = [self getColorFromHexString:color];
+}
+
 RCT_EXPORT_METHOD(setThemeBotIcon:(NSString *) iconUrl) {
     assert(YMChat.shared.config != nil);
     if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = [[YMTheme alloc] init]; }
