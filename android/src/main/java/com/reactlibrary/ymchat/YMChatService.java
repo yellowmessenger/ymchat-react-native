@@ -208,6 +208,11 @@ public class YMChatService {
         ymChat.config.theme.secondaryColor = color;
     }
 
+    public void setThemeBotBubbleBackgroundColor(String color) {
+        if (ymChat.config.theme == null) { ymChat.config.theme = new YMTheme(); }
+        ymChat.config.theme.botBubbleBackgroundColor = color;
+    }
+
     public void setThemeBotIcon(String iconUrl) {
         if (ymChat.config.theme == null) { ymChat.config.theme = new YMTheme(); }
         ymChat.config.theme.botIcon = iconUrl;
