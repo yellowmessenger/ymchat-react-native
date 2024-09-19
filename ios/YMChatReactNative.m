@@ -195,6 +195,12 @@ RCT_EXPORT_METHOD(setThemeBotClickIcon:(NSString *) iconUrl) {
     YMChat.shared.config.theme.botClickIcon = iconUrl;
 }
 
+RCT_EXPORT_METHOD(setChatContainerTheme:(NSString *) theme) {
+    assert(YMChat.shared.config != nil);
+    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = [[YMTheme alloc] init]; }
+    YMChat.shared.config.theme.chatBotTheme = theme;
+}
+
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
     if (YMEventEmitter.shared) {
         NSMutableDictionary *dict = [NSMutableDictionary new];

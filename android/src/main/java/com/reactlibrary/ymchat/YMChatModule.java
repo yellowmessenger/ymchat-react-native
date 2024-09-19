@@ -184,6 +184,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.setThemeBotClickIcon(iconUrl);
     }
 
+    @ReactMethod
+    public void setChatContainerTheme(String theme) {
+        ymChatService.setChatContainerTheme(theme);
+    }
+
     @Override
     public String getName() {
         return "YMChat";
