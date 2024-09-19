@@ -222,4 +222,9 @@ public class YMChatService {
         if (ymChat.config.theme == null) { ymChat.config.theme = new YMTheme(); }
         ymChat.config.theme.botClickIcon = iconUrl;
     }
+
+    public void setChatContainerTheme(String theme) {
+        if (ymChat.config.theme == null) { ymChat.config.theme = new YMTheme(); }
+        ymChat.config.theme.chatBotTheme = theme;
+    }
 }
