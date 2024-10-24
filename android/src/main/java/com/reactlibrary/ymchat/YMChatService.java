@@ -83,8 +83,8 @@ public class YMChatService {
         ymChat.config.speechConfig.enableSpeech = speech;
     }
 
-    public void setButtonMovable(boolean shouldButtonMovable) {
-        ymChat.config.speechConfig.isButtonMovable = shouldButtonMovable;
+    public void setMicButtonMovable(boolean shouldMicButtonMovable) {
+        ymChat.config.speechConfig.isButtonMovable = shouldMicButtonMovable;
     }
 
     public void setAuthenticationToken(String token) {

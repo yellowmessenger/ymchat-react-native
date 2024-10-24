@@ -48,9 +48,9 @@ RCT_EXPORT_METHOD(setEnableSpeech:(BOOL) speech) {
     YMChat.shared.config.speechConfig.enableSpeech = speech;
 }
 
-RCT_EXPORT_METHOD(setButtonMovable:(BOOL) shouldButtonMovable) {
+RCT_EXPORT_METHOD(setMicButtonMovable:(BOOL) shouldMicButtonMovable) {
     assert(YMChat.shared.config != nil);
-    YMChat.shared.config.speechConfig.isButtonMovable = shouldButtonMovable;
+    YMChat.shared.config.speechConfig.isButtonMovable = shouldMicButtonMovable;
 }
 
 RCT_EXPORT_METHOD(setAuthenticationToken:(NSString *) token) {
