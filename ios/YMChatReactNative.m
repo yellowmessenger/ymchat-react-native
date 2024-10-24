@@ -45,7 +45,12 @@ RCT_EXPORT_METHOD(sendEventToBot:(NSString *)code data:(NSDictionary *)data) {
 
 RCT_EXPORT_METHOD(setEnableSpeech:(BOOL) speech) {
     assert(YMChat.shared.config != nil);
-    YMChat.shared.config.enableSpeech = speech;
+    YMChat.shared.config.speechConfig.enableSpeech = speech;
+}
+
+RCT_EXPORT_METHOD(setButtonMovable:(BOOL) shouldButtonMovable) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.speechConfig.isButtonMovable = shouldButtonMovable;
 }
 
 RCT_EXPORT_METHOD(setAuthenticationToken:(NSString *) token) {
@@ -140,12 +145,12 @@ RCT_EXPORT_METHOD(setDisableActionsOnLoad:(BOOL) shouldDisableActionsOnLoad) {
 
 RCT_EXPORT_METHOD(setMicIconColor:(NSString *) color) {
     assert(YMChat.shared.config != nil);
-    YMChat.shared.config.enableSpeechConfig.fabIconColor = [self getColorFromHexString:color];
+    YMChat.shared.config.speechConfig.fabIconColor = [self getColorFromHexString:color];
 }
 
 RCT_EXPORT_METHOD(setMicBackgroundColor:(NSString *) color) {
     assert(YMChat.shared.config != nil);
-    YMChat.shared.config.enableSpeechConfig.fabBackgroundColor = [self getColorFromHexString:color];
+    YMChat.shared.config.speechConfig.fabBackgroundColor = [self getColorFromHexString:color];
 }
 
 RCT_EXPORT_METHOD(useSecureYmAuth:(BOOL) shouldUseSecureYmAuth) {
