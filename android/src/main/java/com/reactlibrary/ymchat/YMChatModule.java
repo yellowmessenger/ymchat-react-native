@@ -145,6 +145,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void setMicButtonMovable(boolean shouldMicButtonMovable) {
+        ymChatService.setMicButtonMovable(shouldMicButtonMovable);
+    }
+
+    @ReactMethod
     public void useSecureYmAuth(boolean shouldUseSecureYmAuth) {
         ymChatService.useSecureYmAuth(shouldUseSecureYmAuth);
     }
