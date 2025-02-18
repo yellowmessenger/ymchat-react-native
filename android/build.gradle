@@ -13,6 +13,7 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'com.reactlibrary.ymchat'
     compileSdkVersion 34
     buildToolsVersion "30.0.3"
 
@@ -43,6 +44,6 @@ repositories {
 
 dependencies {
     api 'com.facebook.react:react-native:+'
-    implementation 'com.github.yellowmessenger:YMChatbot-Android:v2.18.1'
+    implementation 'com.github.yellowmessenger:YMChatbot-Android:v2.18.2'
 }
   
