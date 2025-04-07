@@ -158,6 +158,11 @@ RCT_EXPORT_METHOD(useSecureYmAuth:(BOOL) shouldUseSecureYmAuth) {
     YMChat.shared.config.useSecureYmAuth = shouldUseSecureYmAuth;
 }
 
+RCT_EXPORT_METHOD(setOpenLinkExternally:(BOOL) shouldOpenLinkExternally) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.shouldOpenLinkExternally = shouldOpenLinkExternally;
+}
+
 RCT_EXPORT_METHOD(setThemeBotName:(NSString *) name) {
     assert(YMChat.shared.config != nil);
     if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = [[YMTheme alloc] init]; }

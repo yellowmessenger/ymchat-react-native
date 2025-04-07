@@ -192,6 +192,10 @@ public class YMChatService {
         ymChat.config.useSecureYmAuth = shouldUseSecureYmAuth;
     }
 
+    public void setOpenLinkExternally(boolean shouldOpenLinkExternally) {
+        ymChat.config.shouldOpenLinkExternally = shouldOpenLinkExternally;
+    }
+
     public void setThemeBotName(String name) {
         if (ymChat.config.theme == null) { ymChat.config.theme = new YMTheme(); }
         ymChat.config.theme.botName = name;

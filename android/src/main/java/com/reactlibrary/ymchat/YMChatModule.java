@@ -155,6 +155,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void setOpenLinkExternally(boolean shouldOpenLinkExternally) {
+        ymChatService.setOpenLinkExternally(shouldOpenLinkExternally);
+    }
+
+    @ReactMethod
     public void setThemeBotName(String name) {
         ymChatService.setThemeBotName(name);
     }
