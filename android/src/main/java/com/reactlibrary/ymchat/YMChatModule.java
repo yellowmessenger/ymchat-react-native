@@ -199,6 +199,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.setChatContainerTheme(theme);
     }
 
+    @ReactMethod
+    public void setThemeLinkColor(String color) {
+        ymChatService.setThemeLinkColor(color);
+    }
+
     @Override
     public String getName() {
         return "YMChat";

@@ -211,6 +211,12 @@ RCT_EXPORT_METHOD(setChatContainerTheme:(NSString *) theme) {
     YMChat.shared.config.theme.chatBotTheme = theme;
 }
 
+RCT_EXPORT_METHOD(setThemeLinkColor:(NSString *) color) {
+    assert(YMChat.shared.config != nil);
+    if (YMChat.shared.config.theme == nil) { YMChat.shared.config.theme = [[YMTheme alloc] init]; }
+    YMChat.shared.config.theme.linkColor = [self getColorFromHexString:color];
+}
+
 - (void)onEventFromBotWithResponse:(YMBotEventResponse *)response {
     if (YMEventEmitter.shared) {
         NSMutableDictionary *dict = [NSMutableDictionary new];

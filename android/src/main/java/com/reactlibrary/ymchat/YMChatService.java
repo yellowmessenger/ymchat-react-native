@@ -235,4 +235,9 @@ public class YMChatService {
         if (ymChat.config.theme == null) { ymChat.config.theme = new YMTheme(); }
         ymChat.config.theme.chatBotTheme = theme;
     }
+    
+    public void setThemeLinkColor(String color) {
+        if (ymChat.config.theme == null) { ymChat.config.theme = new YMTheme(); }
+        ymChat.config.theme.linkColor = color;
+    }
 }
