@@ -227,9 +227,16 @@ RCT_EXPORT_METHOD(setThemeLinkColor:(NSString *) color) {
         [YMEventEmitter.shared sendEventWithName:@"YMChatEvent" body:dict];
     }
 }
+
 - (void) onBotClose {
     if (YMEventEmitter.shared) {
         [YMEventEmitter.shared sendEventWithName:@"YMBotCloseEvent" body:nil];
+    }
+}
+
+- (void) onBotLoadFailed {
+    if (YMEventEmitter.shared) {
+        [YMEventEmitter.shared sendEventWithName:@"YMBotLoadFailedEvent" body:nil];
     }
 }
 

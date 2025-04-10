@@ -11,7 +11,7 @@ static YMEventEmitter * _shared;
 }
 
 - (NSArray<NSString *> *)supportedEvents {
-    return @[@"YMChatEvent", @"YMBotCloseEvent"];
+    return @[@"YMChatEvent", @"YMBotCloseEvent", @"YMBotLoadFailedEvent"];
 }
 
 -(void)startObserving {
