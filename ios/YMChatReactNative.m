@@ -117,9 +117,9 @@ RCT_EXPORT_METHOD(useLiteVersion:(BOOL) shouldUseLiteVersion) {
     YMChat.shared.config.useLiteVersion = shouldUseLiteVersion;
 }
 
-RCT_EXPORT_METHOD(setVersion:(NSInteger *) version) {
+RCT_EXPORT_METHOD(setVersion:(NSNumber *) version) {
     assert(YMChat.shared.config != nil);
-    YMChat.shared.config.version = version;
+    YMChat.shared.config.version = [version integerValue];
 }
 
 RCT_EXPORT_METHOD(setCustomLoaderURL:(NSString *) url) {
