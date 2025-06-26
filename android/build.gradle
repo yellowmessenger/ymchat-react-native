@@ -2,11 +2,11 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.android.tools.build:gradle:8.6.0'
     }
 }
 
@@ -14,14 +14,11 @@ apply plugin: 'com.android.library'
 
 android {
     namespace 'com.reactlibrary.ymchat'
-    compileSdkVersion 34
-    buildToolsVersion "30.0.3"
+    compileSdk 35
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 34
-        versionCode 1
-        versionName "1.0"
+        targetSdk 35
     }
     lintOptions {
         abortOnError false
@@ -34,7 +31,6 @@ android {
 
 repositories {
     mavenCentral()
-    jcenter()
     maven { url "https://jitpack.io" }
     maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     google()
@@ -44,6 +40,6 @@ repositories {
 
 dependencies {
     api 'com.facebook.react:react-native:+'
-    implementation 'com.github.yellowmessenger:YMChatbot-Android:v2.21.1'
+    implementation 'com.github.yellowmessenger:YMChatbot-Android:v2.22.0'
 }
   
