@@ -1,12 +1,16 @@
 package com.reactlibrary.ymchat;
 
-import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.module.annotations.ReactModule;
 
+@ReactModule(name = YMChatModule.NAME)
 public class YMChatModule extends ReactContextBaseJavaModule {
+
+    public static final String NAME = "YMChat";
 
     private final ReactApplicationContext reactContext;
     private YMChatService ymChatService;
@@ -15,6 +19,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         super(reactContext);
         this.reactContext = reactContext;
         ymChatService = new YMChatService(reactContext);
+    }
+
+    @Override
+    public String getName() {
+        return NAME;
     }
 
     @ReactMethod
@@ -90,18 +99,18 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void unlinkDeviceToken(String botId, String apiKey, String deviceToken, Callback callback) throws Exception {
-        ymChatService.unlinkDeviceToken(botId, apiKey, deviceToken, callback);
+    public void unlinkDeviceToken(String botId, String apiKey, String deviceToken, Promise promise) {
+        ymChatService.unlinkDeviceToken(botId, apiKey, deviceToken, promise);
     }
 
     @ReactMethod
-    public void registerDevice(String apiKey, Callback callback) throws Exception {
-        ymChatService.registerDevice(apiKey, callback);
+    public void registerDevice(String apiKey, Promise promise) {
+        ymChatService.registerDevice(apiKey, promise);
     }
 
     @ReactMethod
-    public void getUnreadMessagesCount(Callback callback) throws Exception {
-        ymChatService.getUnreadMessagesCount(callback);
+    public void getUnreadMessagesCount(Promise promise) {
+        ymChatService.getUnreadMessagesCount(promise);
     }
 
     @ReactMethod
@@ -204,9 +213,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.setThemeLinkColor(color);
     }
 
-    @Override
-    public String getName() {
-        return "YMChat";
-    }
+    // Required stubs for NativeEventEmitter compatibility (addListener/removeListeners
+    // are handled by React Native's event system, not by this module directly on Android).
+    @ReactMethod
+    public void addListener(String eventName) {}
 
+    @ReactMethod
+    public void removeListeners(int count) {}
 }

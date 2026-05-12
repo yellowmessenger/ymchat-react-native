@@ -3,11 +3,10 @@ package com.reactlibrary.ymchat;
 import android.content.Context;
 
 import com.facebook.react.bridge.Arguments;
-import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
-import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.reactlibrary.ymchat.YmChatUtils.Utils;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
@@ -30,12 +29,10 @@ public class YMChatService {
             WritableMap params = Arguments.createMap();
             params.putString("code", botEvent.getCode());
             params.putString("data", botEvent.getData());
-            reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("YMChatEvent", params);
+            reactContext.emitDeviceEvent("YMChatEvent", params);
         });
-        ymChat.onBotClose(() -> reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                .emit("YMBotCloseEvent", null));
-        ymChat.onBotLoadFailed(() -> reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-                .emit("YMBotLoadFailedEvent", null));
+        ymChat.onBotClose(() -> reactContext.emitDeviceEvent("YMBotCloseEvent", null));
+        ymChat.onBotLoadFailed(() -> reactContext.emitDeviceEvent("YMBotLoadFailedEvent", null));
     }
 
     public void setBotId(String botId) {
@@ -101,56 +98,54 @@ public class YMChatService {
         ymChat.config.customBaseUrl = url;
     }
 
-    public void unlinkDeviceToken(String botId, String apiKey, String deviceToken, Callback callback) throws Exception {
+    public void unlinkDeviceToken(String botId, String apiKey, String deviceToken, Promise promise) {
         ymChat.unlinkDeviceToken(botId, apiKey, deviceToken, new YellowCallback() {
             @Override
             public void success() {
-                callback.invoke(true);
+                promise.resolve(true);
             }
 
             @Override
             public void failure(String message) {
-                callback.invoke(message);
+                promise.reject("UNLINK_FAILED", message);
             }
         });
     }
 
-    public void registerDevice(String apiKey, Callback callback) {
+    public void registerDevice(String apiKey, Promise promise) {
         try {
             ymChat.registerDevice(apiKey, ymChat.config, new YellowCallback() {
                 @Override
                 public void success() {
-                    callback.invoke(true);
+                    promise.resolve(true);
                 }
 
                 @Override
                 public void failure(String message) {
-                    callback.invoke(message);
+                    promise.reject("REGISTER_FAILED", message);
                 }
             });
         } catch (Exception e) {
-            callback.invoke(e.getMessage());
+            promise.reject("REGISTER_EXCEPTION", e.getMessage());
         }
     }
 
-    public void getUnreadMessagesCount(Callback callback) {
+    public void getUnreadMessagesCount(Promise promise) {
         try {
             ymChat.getUnreadMessagesCount(ymChat.config, new YellowDataCallback() {
                 @Override
                 public <T> void success(T data) {
                     YellowUnreadMessageResponse response = (YellowUnreadMessageResponse) data;
-                    callback.invoke(response.getUnreadCount());
+                    promise.resolve(String.valueOf(response.getUnreadCount()));
                 }
 
                 @Override
                 public void failure(String message) {
-                    HashMap<String, String> errorObject = new HashMap<String, String>();
-                    errorObject.put("error", message);
-                    callback.invoke(errorObject);
+                    promise.reject("UNREAD_FAILED", message);
                 }
             });
         } catch (Exception e) {
-            callback.invoke(e.getMessage());
+            promise.reject("UNREAD_EXCEPTION", e.getMessage());
         }
     }
 
