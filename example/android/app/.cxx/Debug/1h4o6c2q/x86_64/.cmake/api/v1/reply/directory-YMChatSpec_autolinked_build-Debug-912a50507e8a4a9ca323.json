@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "YMChatSpec_autolinked_build",
+		"source" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/node_modules/ymchat-react-native/android/build/generated/source/codegen/jni"
+	}
+}

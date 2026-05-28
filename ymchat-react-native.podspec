@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.swift_version = "5.0"
 
-  s.dependency "React-Core"
   s.dependency "YMChat", "~> 1.24.0"
 
   # install_modules_dependencies handles New Architecture (TurboModule) dependencies

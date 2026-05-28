@@ -1,0 +1,37 @@
+{
+  "buildFiles": [
+    "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt",
+    "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/node_modules/ymchat-react-native/android/build/generated/source/codegen/jni/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/Sankalp-Gupta/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/Sankalp-Gupta/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "react_codegen_YMChatSpec::@8df22c4699087d840d36": {
+      "artifactName": "react_codegen_YMChatSpec",
+      "abi": "x86",
+      "runtimeFiles": []
+    },
+    "appmodules::@6890427a1f51a3e7e1df": {
+      "artifactName": "appmodules",
+      "abi": "x86",
+      "output": "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/build/intermediates/cxx/Debug/1h4o6c2q/obj/x86/libappmodules.so",
+      "runtimeFiles": [
+        "/Users/Sankalp-Gupta/.gradle/caches/8.8/transforms/662252eae8736c47cb10f483a13867b4/transformed/jetified-fbjni-0.6.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so",
+        "/Users/Sankalp-Gupta/.gradle/caches/8.8/transforms/ed6738bf8dd5f56bc1d0f1dbfd2b4573/transformed/jetified-react-android-0.76.5-debug/prefab/modules/jsi/libs/android.x86/libjsi.so",
+        "/Users/Sankalp-Gupta/.gradle/caches/8.8/transforms/ed6738bf8dd5f56bc1d0f1dbfd2b4573/transformed/jetified-react-android-0.76.5-debug/prefab/modules/reactnative/libs/android.x86/libreactnative.so"
+      ]
+    }
+  }
+}

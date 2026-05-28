@@ -2,28 +2,20 @@ package com.reactlibrary.ymchat;
 
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.module.annotations.ReactModule;
 
 @ReactModule(name = YMChatModule.NAME)
-public class YMChatModule extends ReactContextBaseJavaModule {
+public class YMChatModule extends NativeYMChatSpec {
 
     public static final String NAME = "YMChat";
 
-    private final ReactApplicationContext reactContext;
     private YMChatService ymChatService;
 
     public YMChatModule(ReactApplicationContext reactContext) {
         super(reactContext);
-        this.reactContext = reactContext;
         ymChatService = new YMChatService(reactContext);
-    }
-
-    @Override
-    public String getName() {
-        return NAME;
     }
 
     @ReactMethod
@@ -34,7 +26,7 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void startChatbot() {
         try {
-            ymChatService.startChatbot(reactContext);
+            ymChatService.startChatbot(getReactApplicationContext());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -99,6 +91,11 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void addKeyToPayload(String key, String value) {
+        ymChatService.addKeyToPayload(key, value);
+    }
+
+    @ReactMethod
     public void unlinkDeviceToken(String botId, String apiKey, String deviceToken, Promise promise) {
         ymChatService.unlinkDeviceToken(botId, apiKey, deviceToken, promise);
     }
@@ -114,8 +111,8 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setVersion(int version) {
-        ymChatService.setVersion(version);
+    public void setVersion(double version) {
+        ymChatService.setVersion((int) version);
     }
 
     @ReactMethod
@@ -213,11 +210,9 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.setThemeLinkColor(color);
     }
 
-    // Required stubs for NativeEventEmitter compatibility (addListener/removeListeners
-    // are handled by React Native's event system, not by this module directly on Android).
     @ReactMethod
     public void addListener(String eventName) {}
 
     @ReactMethod
-    public void removeListeners(int count) {}
+    public void removeListeners(double count) {}
 }

@@ -1,0 +1,323 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/build/intermediates/cxx/Debug/1h4o6c2q/obj/x86/libappmodules.so"
+		}
+	],
+	"backtrace" : 3,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"include",
+			"target_link_libraries",
+			"target_compile_options",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"/Users/Sankalp-Gupta/Work/ymchat-react-native/example/node_modules/react-native/ReactAndroid/cmake-utils/ReactNative-application.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 31,
+				"parent" : 0
+			},
+			{
+				"file" : 0,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 41,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 72,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 86,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 48,
+				"parent" : 2
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 43,
+				"parent" : 2
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-Werror"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-Wno-error=cpp"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-fexceptions"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-frtti"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-std=c++20"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-DLOG_TAG=\\\"ReactNative\\\""
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-DFOLLY_NO_CONFIG=1"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-DFOLLY_HAVE_CLOCK_GETTIME=1"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-DFOLLY_USE_LIBCPP=1"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-DFOLLY_CFG_NO_COROUTINES=1"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-DFOLLY_MOBILE=1"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-DFOLLY_HAVE_RECVMMSG=1"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-DFOLLY_HAVE_PTHREAD=1"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-DFOLLY_HAVE_XSI_STRERROR_R=1"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"define" : "appmodules_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 7,
+					"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/build/generated/autolinking/src/main/jni"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/node_modules/ymchat-react-native/android/build/generated/source/codegen/jni/."
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/node_modules/ymchat-react-native/android/build/generated/source/codegen/jni/react/renderer/components/YMChatSpec"
+				},
+				{
+					"backtrace" : 4,
+					"isSystem" : true,
+					"path" : "/Users/Sankalp-Gupta/.gradle/caches/8.8/transforms/662252eae8736c47cb10f483a13867b4/transformed/jetified-fbjni-0.6.0/prefab/modules/fbjni/include"
+				},
+				{
+					"backtrace" : 4,
+					"isSystem" : true,
+					"path" : "/Users/Sankalp-Gupta/.gradle/caches/8.8/transforms/ed6738bf8dd5f56bc1d0f1dbfd2b4573/transformed/jetified-react-android-0.76.5-debug/prefab/modules/jsi/include"
+				},
+				{
+					"backtrace" : 4,
+					"isSystem" : true,
+					"path" : "/Users/Sankalp-Gupta/.gradle/caches/8.8/transforms/ed6738bf8dd5f56bc1d0f1dbfd2b4573/transformed/jetified-react-android-0.76.5-debug/prefab/modules/reactnative/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			],
+			"sysroot" : 
+			{
+				"path" : "/Users/Sankalp-Gupta/Library/Android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+			}
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "react_codegen_YMChatSpec::@8df22c4699087d840d36"
+		}
+	],
+	"id" : "appmodules::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "/Users/Sankalp-Gupta/.gradle/caches/8.8/transforms/662252eae8736c47cb10f483a13867b4/transformed/jetified-fbjni-0.6.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "/Users/Sankalp-Gupta/.gradle/caches/8.8/transforms/ed6738bf8dd5f56bc1d0f1dbfd2b4573/transformed/jetified-react-android-0.76.5-debug/prefab/modules/jsi/libs/android.x86/libjsi.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "/Users/Sankalp-Gupta/.gradle/caches/8.8/transforms/ed6738bf8dd5f56bc1d0f1dbfd2b4573/transformed/jetified-react-android-0.76.5-debug/prefab/modules/reactnative/libs/android.x86/libreactnative.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-latomic -lm",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX",
+		"sysroot" : 
+		{
+			"path" : "/Users/Sankalp-Gupta/Library/Android/sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/darwin-x86_64/sysroot"
+		}
+	},
+	"name" : "appmodules",
+	"nameOnDisk" : "libappmodules.so",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		},
+		{
+			"name" : "Object Libraries",
+			"sourceIndexes" : 
+			[
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 3,
+			"compileGroupIndex" : 0,
+			"path" : "OnLoad.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/x86/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/YMChatSpec-generated.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/x86/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/ComponentDescriptors.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/x86/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/EventEmitters.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/x86/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/Props.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/x86/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/ShadowNodes.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/x86/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/States.cpp.o",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/x86/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/YMChatSpecJSI-generated.cpp.o",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}

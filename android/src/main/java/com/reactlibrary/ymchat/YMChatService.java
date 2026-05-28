@@ -99,17 +99,21 @@ public class YMChatService {
     }
 
     public void unlinkDeviceToken(String botId, String apiKey, String deviceToken, Promise promise) {
-        ymChat.unlinkDeviceToken(botId, apiKey, deviceToken, new YellowCallback() {
-            @Override
-            public void success() {
-                promise.resolve(true);
-            }
+        try {
+            ymChat.unlinkDeviceToken(botId, apiKey, deviceToken, new YellowCallback() {
+                @Override
+                public void success() {
+                    promise.resolve(true);
+                }
 
-            @Override
-            public void failure(String message) {
-                promise.reject("UNLINK_FAILED", message);
-            }
-        });
+                @Override
+                public void failure(String message) {
+                    promise.reject("UNLINK_FAILED", message);
+                }
+            });
+        } catch (Exception e) {
+            promise.reject("UNLINK_FAILED", e.getMessage());
+        }
     }
 
     public void registerDevice(String apiKey, Promise promise) {
@@ -151,6 +155,10 @@ public class YMChatService {
 
     public void setPayload(ReadableMap payload) {
         ymChat.config.payload.putAll(Utils.readableMapToHashMap(payload));
+    }
+
+    public void addKeyToPayload(String key, String value) {
+        ymChat.config.payload.put(key, value);
     }
 
     public void setVersion(int version) {
