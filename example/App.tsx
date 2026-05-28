@@ -16,7 +16,7 @@ import {YMChat, YMChatEvents} from 'ymchat-react-native';
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 // Replace with your bot ID and API key before testing
-const DEFAULT_BOT_ID = 'YOUR_BOT_ID';
+const DEFAULT_BOT_ID = 'x1657623696077';
 const DEFAULT_API_KEY = 'YOUR_API_KEY';
 const DEFAULT_DEVICE_TOKEN = 'DEVICE_PUSH_TOKEN';
 
@@ -24,8 +24,11 @@ const DEFAULT_DEVICE_TOKEN = 'DEVICE_PUSH_TOKEN';
 type LogEntry = {id: number; time: string; tag: string; msg: string};
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
+// iOS New Arch registers under 'YMChatReactNative' to avoid SDK class name clash
 const isNewArch =
-  TurboModuleRegistry != null && TurboModuleRegistry.get('YMChat') != null;
+  TurboModuleRegistry != null &&
+  TurboModuleRegistry.get != null &&
+  (TurboModuleRegistry.get('YMChatReactNative') ?? TurboModuleRegistry.get('YMChat')) != null;
 
 let logId = 0;
 function makeEntry(tag: string, msg: string): LogEntry {
@@ -55,6 +58,9 @@ export default function App() {
 
   // ── Event listeners ──────────────────────────────────────────────────────
   useEffect(() => {
+    if (!YMChatEvents) {
+      return;
+    }
     const onChatEvent = YMChatEvents.addListener('YMChatEvent', event => {
       log('EVENT', `YMChatEvent → code=${event?.code}  data=${JSON.stringify(event?.data ?? null)}`);
     });
