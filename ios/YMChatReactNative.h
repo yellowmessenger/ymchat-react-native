@@ -1,7 +1,8 @@
 #ifdef RCT_NEW_ARCH_ENABLED
 // New Architecture: conform to the Codegen-generated TurboModule spec.
 #import <YMChatSpec/YMChatSpec.h>
-@import YMChat;
+
+@protocol YMChatDelegate;
 
 @interface YMChatReactNative : NSObject <NativeYMChatSpec, YMChatDelegate>
 @end
@@ -16,7 +17,7 @@
 #import <React/RCTEventEmitter.h>
 #endif
 
-@import YMChat;
+@protocol YMChatDelegate;
 
 // Extends RCTEventEmitter so this single module handles both method calls
 // and native-to-JS event dispatch (replaces the old separate YMEventEmitter module).

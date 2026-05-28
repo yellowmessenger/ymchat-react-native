@@ -1,14 +1,19 @@
 import { NativeModules, NativeEventEmitter, TurboModuleRegistry } from 'react-native';
 
-// Use TurboModuleRegistry on New Architecture; fall back to NativeModules on Old Architecture.
+// On iOS New Architecture, RCT_EXPORT_MODULE registers the native module under
+// 'YMChatReactNative' (the ObjC class name) to avoid a collision: the fallback
+// NSClassFromString lookup in RCTTurboModuleManager finds the underlying
+// YMChat iOS SDK singleton class first when the name is 'YMChat', causing the
+// TurboModule conformance check to fail. On Android and old-arch iOS the module
+// is still registered as 'YMChat'.
 const YMChat =
-  TurboModuleRegistry != null && TurboModuleRegistry.get != null
-    ? TurboModuleRegistry.get('YMChat')
-    : NativeModules.YMChat;
+  (TurboModuleRegistry != null && TurboModuleRegistry.get != null
+    ? (TurboModuleRegistry.get('YMChatReactNative') ?? TurboModuleRegistry.get('YMChat'))
+    : null) ?? NativeModules.YMChat;
 
-// Single unified event emitter — works on both architectures.
-// The native YMChat module exposes addListener/removeListeners directly,
-// so no separate YMEventEmitter module is needed.
-const YMChatEvents = new NativeEventEmitter(YMChat);
+// NativeEventEmitter requires a non-null module in RN 0.76+.
+// Guard against null so the JS module doesn't crash when the module hasn't
+// loaded yet (e.g. during hot reload or if the binary is stale).
+const YMChatEvents = YMChat != null ? new NativeEventEmitter(YMChat) : null;
 
 module.exports = { YMChat, YMChatEvents };

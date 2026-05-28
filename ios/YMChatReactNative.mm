@@ -1,3 +1,5 @@
+#import <WebKit/WebKit.h>
+#import "YMChat-Swift.h"
 #import "YMChatReactNative.h"
 
 // ---------------------------------------------------------------------------
@@ -5,11 +7,16 @@
 // ---------------------------------------------------------------------------
 #ifdef RCT_NEW_ARCH_ENABLED
 
-#import <ReactCommon/RCTTurboModule.h>
+#include <ReactCommon/RCTTurboModule.h>
 
 @implementation YMChatReactNative
 
-RCT_EXPORT_MODULE(YMChat);
+// Use the ObjC class name as the module name to avoid NSClassFromString finding
+// the underlying YMChat iOS SDK singleton class when the TurboModule manager
+// does its fallback lookup (getFallbackClassFromName). The JS side resolves this
+// by trying 'YMChatReactNative' first, then falling back to 'YMChat' for
+// Android / old-arch compatibility.
+RCT_EXPORT_MODULE(YMChatReactNative);
 
 // --- Helpers ----------------------------------------------------------------
 
@@ -198,27 +205,38 @@ RCT_EXPORT_MODULE(YMChat);
 - (void)startChatbot {
     assert(YMChat.shared.config != nil);
     YMChat.shared.delegate = self;
-    [[YMChat shared] startChatbotWithAnimated:YES error:nil completion:nil];
+    // TurboModule void methods run on a background queue; WebKit/UIKit require main thread.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[YMChat shared] startChatbotWithAnimated:YES error:nil completion:nil];
+    });
 }
 
 - (void)closeBot {
-    [[YMChat shared] closeBot];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[YMChat shared] closeBot];
+    });
 }
 
 - (void)reloadBot {
     assert(YMChat.shared.config != nil && YMChat.shared.viewController != nil);
-    [[YMChat shared] reloadBotAndReturnError:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[YMChat shared] reloadBotAndReturnError:nil];
+    });
 }
 
 - (void)revalidateToken:(NSString *)token refreshSession:(BOOL)refreshSession {
     assert(YMChat.shared.config != nil && YMChat.shared.viewController != nil);
-    [[YMChat shared] revalidateTokenWithToken:token refreshSession:refreshSession error:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[YMChat shared] revalidateTokenWithToken:token refreshSession:refreshSession error:nil];
+    });
 }
 
 - (void)sendEventToBot:(NSString *)code data:(NSDictionary *)data {
     assert(YMChat.shared.config != nil && YMChat.shared.viewController != nil);
     YMEventModel *event = [[YMEventModel alloc] initWithCode:code data:data];
-    [[YMChat shared] sendEventToBotWithEvent:event error:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[YMChat shared] sendEventToBotWithEvent:event error:nil];
+    });
 }
 
 // --- Async APIs (Promises) ----------------------------------------------

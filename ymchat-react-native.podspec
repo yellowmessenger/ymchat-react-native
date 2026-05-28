@@ -17,6 +17,13 @@ Pod::Spec.new do |s|
 
   s.dependency "YMChat", "~> 1.24.0"
 
+  # YMChat is a Swift pod. Its Objective-C compatibility header is generated at build time
+  # in the pod's configuration build directory. Adding this path lets us use a plain
+  # #import "YMChat-Swift.h" without needing @import (which requires C++ modules).
+  s.pod_target_xcconfig = {
+    'HEADER_SEARCH_PATHS' => '"${PODS_CONFIGURATION_BUILD_DIR}/YMChat/Swift Compatibility Header"'
+  }
+
   # install_modules_dependencies handles New Architecture (TurboModule) dependencies
   # automatically when RCT_NEW_ARCH_ENABLED=1, and falls back to React-Core only otherwise.
   # Available from react-native >= 0.71.
