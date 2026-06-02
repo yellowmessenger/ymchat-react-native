@@ -1,0 +1,25 @@
+node_modules/
+.bundle/
+
+# Android
+android/app/debug.keystore
+android/.gradle
+android/app/build/
+android/build/
+android/local.properties
+*.iml
+.idea/
+.DS_Store
+
+# iOS
+ios/Pods/
+ios/build/
+ios/*.xcworkspace
+ios/Podfile.lock
+ios/YMChatExample.xcodeproj/xcuserdata/
+
+# Metro
+.metro-health-check*
+
+# Yarn
+.yarn/

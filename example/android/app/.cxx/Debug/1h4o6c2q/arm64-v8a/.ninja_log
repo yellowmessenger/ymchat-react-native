@@ -1,0 +1,15 @@
+# ninja log v5
+6	2578	1779943132287545558	YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/Props.cpp.o	fc3006087e6aeb25
+6	2435	1779943132141079755	YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/YMChatSpecJSI-generated.cpp.o	2ea80819cc71d6af
+6	1932	1779943131636400201	YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/States.cpp.o	7534c57fe21d3d30
+4	2003	1779943131702330561	YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/EventEmitters.cpp.o	1999dde0545256d4
+0	30	0	clean	ad1e717fbb3b8c39
+66	208	1779943274140716982	build.ninja	7946b63a236bc693
+6	2385	1779943132092414836	YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/ShadowNodes.cpp.o	82e21228c4bbe21c
+3	2694	1779943132401357247	CMakeFiles/appmodules.dir/OnLoad.cpp.o	2f83822ddadd3ff7
+3	2563	1779943132267807513	CMakeFiles/appmodules.dir/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	3491bcac673d22c6
+1	35	0	/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/arm64-v8a/CMakeFiles/cmake.verify_globs	bbff4da939fbb8a5
+2694	2876	1779943132586221089	/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/build/intermediates/cxx/Debug/1h4o6c2q/obj/arm64-v8a/libappmodules.so	90165adb8379a60c
+3	2535	1779943132242425087	YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/YMChatSpec-generated.cpp.o	7e5918a82a2266f0
+4	2466	1779943132173282658	YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/ComponentDescriptors.cpp.o	79d807d5817143d1
+0	34	0	/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/arm64-v8a/CMakeFiles/cmake.verify_globs	bbff4da939fbb8a5

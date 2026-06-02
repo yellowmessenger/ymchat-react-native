@@ -1,0 +1,2 @@
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/node_modules/ymchat-react-native/android/build/generated/source/codegen/jni/CMakeLists.txt

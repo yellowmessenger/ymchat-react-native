@@ -1,16 +1,23 @@
-
 buildscript {
     repositories {
         google()
         mavenCentral()
     }
-
     dependencies {
         classpath 'com.android.tools.build:gradle:8.6.0'
     }
 }
 
 apply plugin: 'com.android.library'
+
+def isNewArchitectureEnabled() {
+    return rootProject.hasProperty("newArchEnabled") && rootProject.getProperty("newArchEnabled") == "true"
+}
+
+// The react plugin drives Codegen artifact generation when New Architecture is enabled.
+if (isNewArchitectureEnabled()) {
+    apply plugin: "com.facebook.react"
+}
 
 android {
     namespace 'com.reactlibrary.ymchat'
@@ -19,13 +26,14 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdk 35
+        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
     }
     lintOptions {
         abortOnError false
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
@@ -36,10 +44,7 @@ repositories {
     google()
 }
 
-
-
 dependencies {
-    api 'com.facebook.react:react-native:+'
+    compileOnly("com.facebook.react:react-android")
     implementation 'com.github.yellowmessenger:YMChatbot-Android:v2.22.0'
 }
-  
