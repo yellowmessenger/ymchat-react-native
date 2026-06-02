@@ -1,0 +1,7 @@
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/YMChatSpec-generated.cpp.o
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/ComponentDescriptors.cpp.o
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/EventEmitters.cpp.o
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/Props.cpp.o
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/ShadowNodes.cpp.o
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/States.cpp.o
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir/react/renderer/components/YMChatSpec/YMChatSpecJSI-generated.cpp.o

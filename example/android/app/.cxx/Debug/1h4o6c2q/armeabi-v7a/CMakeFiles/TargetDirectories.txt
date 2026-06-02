@@ -1,0 +1,6 @@
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/CMakeFiles/appmodules.dir
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/YMChatSpec_autolinked_build/CMakeFiles/react_codegen_YMChatSpec.dir
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/YMChatSpec_autolinked_build/CMakeFiles/edit_cache.dir
+/Users/Sankalp-Gupta/Work/ymchat-react-native/example/android/app/.cxx/Debug/1h4o6c2q/armeabi-v7a/YMChatSpec_autolinked_build/CMakeFiles/rebuild_cache.dir

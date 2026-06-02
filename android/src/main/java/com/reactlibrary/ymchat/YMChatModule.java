@@ -1,19 +1,20 @@
 package com.reactlibrary.ymchat;
 
-import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.module.annotations.ReactModule;
 
-public class YMChatModule extends ReactContextBaseJavaModule {
+@ReactModule(name = YMChatModule.NAME)
+public class YMChatModule extends NativeYMChatSpec {
 
-    private final ReactApplicationContext reactContext;
+    public static final String NAME = "YMChat";
+
     private YMChatService ymChatService;
 
     public YMChatModule(ReactApplicationContext reactContext) {
         super(reactContext);
-        this.reactContext = reactContext;
         ymChatService = new YMChatService(reactContext);
     }
 
@@ -25,7 +26,7 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void startChatbot() {
         try {
-            ymChatService.startChatbot(reactContext);
+            ymChatService.startChatbot(getReactApplicationContext());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,23 +91,28 @@ public class YMChatModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void unlinkDeviceToken(String botId, String apiKey, String deviceToken, Callback callback) throws Exception {
-        ymChatService.unlinkDeviceToken(botId, apiKey, deviceToken, callback);
+    public void addKeyToPayload(String key, String value) {
+        ymChatService.addKeyToPayload(key, value);
     }
 
     @ReactMethod
-    public void registerDevice(String apiKey, Callback callback) throws Exception {
-        ymChatService.registerDevice(apiKey, callback);
+    public void unlinkDeviceToken(String botId, String apiKey, String deviceToken, Promise promise) {
+        ymChatService.unlinkDeviceToken(botId, apiKey, deviceToken, promise);
     }
 
     @ReactMethod
-    public void getUnreadMessagesCount(Callback callback) throws Exception {
-        ymChatService.getUnreadMessagesCount(callback);
+    public void registerDevice(String apiKey, Promise promise) {
+        ymChatService.registerDevice(apiKey, promise);
     }
 
     @ReactMethod
-    public void setVersion(int version) {
-        ymChatService.setVersion(version);
+    public void getUnreadMessagesCount(Promise promise) {
+        ymChatService.getUnreadMessagesCount(promise);
+    }
+
+    @ReactMethod
+    public void setVersion(double version) {
+        ymChatService.setVersion((int) version);
     }
 
     @ReactMethod
@@ -204,9 +210,9 @@ public class YMChatModule extends ReactContextBaseJavaModule {
         ymChatService.setThemeLinkColor(color);
     }
 
-    @Override
-    public String getName() {
-        return "YMChat";
-    }
+    @ReactMethod
+    public void addListener(String eventName) {}
 
+    @ReactMethod
+    public void removeListeners(double count) {}
 }
