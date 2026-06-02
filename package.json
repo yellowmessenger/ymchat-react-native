@@ -1,8 +1,22 @@
 {
   "name": "ymchat-react-native",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "src",
+    "android",
+    "ios",
+    "react-native.config.js",
+    "ymchat-react-native.podspec",
+    "README.md",
+    "CHANGELOG.md",
+    "!android/build",
+    "!android/.gradle",
+    "!android/.settings",
+    "!**/.DS_Store"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
