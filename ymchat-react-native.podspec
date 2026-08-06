@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.swift_version = "5.0"
 
-  s.dependency "YMChat", "~> 2.2.1"
+  s.dependency "YMChat", "~> 2.3.0"
 
   # YMChat is a Swift pod. Its Objective-C compatibility header is generated at build time
   # in the pod's configuration build directory. Adding this path lets us use a plain
