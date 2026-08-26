@@ -38,6 +38,11 @@ public class YMChatModule extends NativeYMChatSpec {
     }
 
     @ReactMethod
+    public void stopVoiceMode() {
+        ymChatService.stopVoiceMode();
+    }
+
+    @ReactMethod
     public void reloadBot() {
         ymChatService.reloadBot();
     }

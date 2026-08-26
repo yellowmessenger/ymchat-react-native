@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.0]
+
+### Added
+
+- **`stopVoiceMode()`** — lets the host app programmatically end an active voice call, e.g. when a modal presentation covers the chatbot and the native view-lifecycle callback that would normally stop voice mode doesn't fire. Bridges the native SDKs' `stopVoiceMode()` to JS for the first time (iOS `YMChat` since 2.2.0, Android `YMChatbot-Android` since v3.2.0 — both already pinned by this package).
+
 ## [3.2.0]
 
 ### Added
