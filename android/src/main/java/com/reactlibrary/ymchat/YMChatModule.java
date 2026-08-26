@@ -3,6 +3,7 @@ package com.reactlibrary.ymchat;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.module.annotations.ReactModule;
 
@@ -168,6 +169,11 @@ public class YMChatModule extends NativeYMChatSpec {
     @ReactMethod
     public void useSecureYmAuth(boolean shouldUseSecureYmAuth) {
         ymChatService.useSecureYmAuth(shouldUseSecureYmAuth);
+    }
+
+    @ReactMethod
+    public void setAllowedUploadSources(ReadableArray sources) {
+        ymChatService.setAllowedUploadSources(sources);
     }
 
     @ReactMethod

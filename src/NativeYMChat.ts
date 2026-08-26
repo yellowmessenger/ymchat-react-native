@@ -29,6 +29,7 @@ export interface Spec extends TurboModule {
   // Feature flags
   useLiteVersion(shouldUseLiteVersion: boolean): void;
   useSecureYmAuth(shouldUseSecureYmAuth: boolean): void;
+  setAllowedUploadSources(sources: Array<string>): void;
 
   // Theme configuration
   setThemeBotName(name: string): void;
