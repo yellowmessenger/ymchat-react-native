@@ -116,6 +116,11 @@ public class YMChatModule extends NativeYMChatSpec {
     }
 
     @ReactMethod
+    public void setActivationMode(String mode) {
+        ymChatService.setActivationMode(mode);
+    }
+
+    @ReactMethod
     public void setCustomLoaderURL(String url) {
         ymChatService.setCustomLoaderUrl(url);
     }
