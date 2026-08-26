@@ -5,19 +5,23 @@ import android.content.Context;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.reactlibrary.ymchat.YmChatUtils.Utils;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
 import com.yellowmessenger.ymchat.models.YMActivationMode;
+import com.yellowmessenger.ymchat.models.YMUploadSource;
 import com.yellowmessenger.ymchat.models.YellowCallback;
 import com.yellowmessenger.ymchat.models.YellowDataCallback;
 import com.yellowmessenger.ymchat.models.YellowUnreadMessageResponse;
 import com.yellowmessenger.ymchat.models.YMEventModel;
 import com.yellowmessenger.ymchat.models.YMTheme;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class YMChatService {
     YMChat ymChat;
@@ -204,6 +208,16 @@ public class YMChatService {
 
     public void useSecureYmAuth(boolean shouldUseSecureYmAuth) {
         ymChat.config.useSecureYmAuth = shouldUseSecureYmAuth;
+    }
+
+    public void setAllowedUploadSources(ReadableArray sources) {
+        List<YMUploadSource> uploadSources = new ArrayList<>();
+        if (sources != null) {
+            for (int i = 0; i < sources.size(); i++) {
+                uploadSources.add(YMUploadSource.valueOf(sources.getString(i).toUpperCase()));
+            }
+        }
+        ymChat.config.allowedUploadSources = uploadSources;
     }
 
     public void setOpenLinkExternally(boolean shouldOpenLinkExternally) {
