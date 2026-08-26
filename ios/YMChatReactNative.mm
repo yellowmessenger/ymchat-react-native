@@ -222,6 +222,12 @@ RCT_EXPORT_MODULE(YMChatReactNative);
     });
 }
 
+- (void)stopVoiceMode {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[YMChat shared] stopVoiceMode];
+    });
+}
+
 - (void)reloadBot {
     assert(YMChat.shared.config != nil && YMChat.shared.viewController != nil);
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -512,6 +518,10 @@ RCT_EXPORT_METHOD(startChatbot) {
 
 RCT_EXPORT_METHOD(closeBot) {
     [[YMChat shared] closeBot];
+}
+
+RCT_EXPORT_METHOD(stopVoiceMode) {
+    [[YMChat shared] stopVoiceMode];
 }
 
 RCT_EXPORT_METHOD(reloadBot) {

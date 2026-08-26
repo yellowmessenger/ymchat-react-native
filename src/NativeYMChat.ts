@@ -44,6 +44,7 @@ export interface Spec extends TurboModule {
   // Lifecycle
   startChatbot(): void;
   closeBot(): void;
+  stopVoiceMode(): void;
   reloadBot(): void;
   revalidateToken(token: string, refreshSession: boolean): void;
   sendEventToBot(code: string, data: Object): void;
