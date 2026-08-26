@@ -10,6 +10,7 @@ export interface Spec extends TurboModule {
   setPayload(payload: Object): void;
   addKeyToPayload(key: string, value: string): void;
   setVersion(version: number): void;
+  setActivationMode(mode: string): void;
   setCustomLoaderURL(url: string): void;
 
   // UI configuration

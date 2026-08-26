@@ -10,6 +10,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.reactlibrary.ymchat.YmChatUtils.Utils;
 import com.yellowmessenger.ymchat.YMChat;
 import com.yellowmessenger.ymchat.YMConfig;
+import com.yellowmessenger.ymchat.models.YMActivationMode;
 import com.yellowmessenger.ymchat.models.YellowCallback;
 import com.yellowmessenger.ymchat.models.YellowDataCallback;
 import com.yellowmessenger.ymchat.models.YellowUnreadMessageResponse;
@@ -163,6 +164,10 @@ public class YMChatService {
 
     public void setVersion(int version) {
         ymChat.config.version = version;
+    }
+
+    public void setActivationMode(String mode) {
+        ymChat.config.activationMode = "voice".equalsIgnoreCase(mode) ? YMActivationMode.VOICE : YMActivationMode.CHAT;
     }
 
     public void setCustomLoaderUrl(String url) {

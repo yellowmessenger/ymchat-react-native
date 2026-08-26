@@ -78,6 +78,11 @@ RCT_EXPORT_MODULE(YMChatReactNative);
     YMChat.shared.config.version = (NSInteger)version;
 }
 
+- (void)setActivationMode:(NSString *)mode {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.activationMode = [mode isEqualToString:@"voice"] ? YMActivationModeVoice : YMActivationModeChat;
+}
+
 - (void)setCustomLoaderURL:(NSString *)url {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.customLoaderUrl = url;
@@ -368,6 +373,11 @@ RCT_EXPORT_METHOD(addKeyToPayload:(NSString *)key value:(NSString *)value) {
 RCT_EXPORT_METHOD(setVersion:(NSNumber *)version) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.version = [version integerValue];
+}
+
+RCT_EXPORT_METHOD(setActivationMode:(NSString *)mode) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.activationMode = [mode isEqualToString:@"voice"] ? YMActivationModeVoice : YMActivationModeChat;
 }
 
 RCT_EXPORT_METHOD(setCustomLoaderURL:(NSString *)url) {
