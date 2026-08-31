@@ -7,6 +7,7 @@ export interface Spec extends TurboModule {
   setAuthenticationToken(token: string): void;
   setDeviceToken(token: string): void;
   setCustomURL(url: string): void;
+  setInitialUserMessage(message: string): void;
   setPayload(payload: Object): void;
   addKeyToPayload(key: string, value: string): void;
   setVersion(version: number): void;

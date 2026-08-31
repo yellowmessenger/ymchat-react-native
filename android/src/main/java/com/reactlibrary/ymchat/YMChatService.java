@@ -99,6 +99,10 @@ public class YMChatService {
         ymChat.config.ymAuthenticationToken = token;
     }
 
+    public void setInitialUserMessage(String message) {
+        ymChat.config.initialUserMessage = message;
+    }
+
     public void showCloseButton(boolean show) {
         ymChat.config.showCloseButton = show;
     }
