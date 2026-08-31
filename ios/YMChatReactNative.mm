@@ -61,6 +61,11 @@ RCT_EXPORT_MODULE(YMChatReactNative);
     YMChat.shared.config.customBaseUrl = url;
 }
 
+- (void)setInitialUserMessage:(NSString *)message {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.initialUserMessage = message;
+}
+
 - (void)setPayload:(NSDictionary *)payload {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.payload = payload;
@@ -362,6 +367,11 @@ RCT_EXPORT_METHOD(setDeviceToken:(NSString *)token) {
 RCT_EXPORT_METHOD(setCustomURL:(NSString *)url) {
     assert(YMChat.shared.config != nil);
     YMChat.shared.config.customBaseUrl = url;
+}
+
+RCT_EXPORT_METHOD(setInitialUserMessage:(NSString *)message) {
+    assert(YMChat.shared.config != nil);
+    YMChat.shared.config.initialUserMessage = message;
 }
 
 RCT_EXPORT_METHOD(setPayload:(NSDictionary *)payload) {

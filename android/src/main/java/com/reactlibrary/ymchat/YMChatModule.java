@@ -82,6 +82,11 @@ public class YMChatModule extends NativeYMChatSpec {
     }
 
     @ReactMethod
+    public void setInitialUserMessage(String message) {
+        ymChatService.setInitialUserMessage(message);
+    }
+
+    @ReactMethod
     public void showCloseButton(boolean show) {
         ymChatService.showCloseButton(show);
     }

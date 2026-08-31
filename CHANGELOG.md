@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.0]
+
+### Added
+
+- **Auto-Sent Initial User Message** — lets the host app automatically send a configured message as soon as the chat widget opens, rendered as a real outgoing user message, via `YMChat.setInitialUserMessage('...')`. Bridges the native SDKs' `initialUserMessage` config to JS for the first time (`YMChatbot-Android` since v3.5.0, iOS `YMChat` since 2.4.0 — this package now requires those versions or newer).
+
 ## [3.4.0]
 
 ### Added
