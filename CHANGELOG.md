@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.1]
+
+### Fixed
+
+- Upgraded native iOS SDK to pick up a WebView keyboard-resize fix — iOS `YMChat` 2.4.1. The embedded WKWebView now resizes when the on-screen keyboard opens, keeping input fields visible instead of being covered. No JS/bridge API changes.
+
 ## [3.5.0]
 
 ### Added
