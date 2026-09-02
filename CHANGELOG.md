@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.2]
+
+### Fixed
+
+- Upgraded native Android SDK to pick up a text-to-speech fallback for the widget's Read aloud button — Android `YMChatbot-Android` 3.5.1. `android.webkit.WebView` doesn't implement `window.speechSynthesis`, so the button previously did nothing there; it now falls back to a native `TextToSpeech` bridge. No JS/bridge API changes.
+
 ## [3.5.1]
 
 ### Fixed
