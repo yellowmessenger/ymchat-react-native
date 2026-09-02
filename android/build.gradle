@@ -46,5 +46,5 @@ repositories {
 
 dependencies {
     compileOnly("com.facebook.react:react-android")
-    implementation 'com.github.yellowmessenger:YMChatbot-Android:v3.5.0'
+    implementation 'com.github.yellowmessenger:YMChatbot-Android:v3.5.1'
 }
