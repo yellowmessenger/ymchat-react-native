@@ -6,12 +6,18 @@ name: Release
 # CHANGELOG.md section, and publish the package to npm. A push to main that
 # isn't a release (its package.json version is already tagged) is a no-op.
 #
+# Tag/release creation and the npm publish are gated independently: tag+
+# release only happen for a not-yet-tagged version, but npm publish is
+# retried on every run (including a manual workflow_dispatch, e.g. to
+# recover from a publish failure) as long as that version isn't on npm yet.
+#
 # Requires an NPM_TOKEN repo secret (an npm automation token with publish
 # access to the ymchat-react-native package) for the npm publish step.
 
 on:
   push:
     branches: [main]
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -42,6 +48,12 @@ jobs:
             echo "already_tagged=true" >> "$GITHUB_OUTPUT"
           else
             echo "already_tagged=false" >> "$GITHUB_OUTPUT"
+          fi
+
+          if npm view "ymchat-react-native@${{ steps.version.outputs.version }}" version >/dev/null 2>&1; then
+            echo "already_published=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "already_published=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Extract CHANGELOG section
@@ -77,14 +89,14 @@ jobs:
             --notes-file "${{ steps.changelog.outputs.notes_file }}"
 
       - name: Set up Node for npm publish
-        if: steps.check.outputs.already_tagged == 'false'
+        if: steps.check.outputs.already_published == 'false'
         uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org
 
       - name: Publish to npm
-        if: steps.check.outputs.already_tagged == 'false'
+        if: steps.check.outputs.already_published == 'false'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
