@@ -1,0 +1,90 @@
+name: Release
+
+# Reproduces this repo's existing manual release process: whenever a push to
+# main carries a version in package.json that hasn't been tagged yet, tag
+# that commit (vX.Y.Z), publish a GitHub Release whose body is the matching
+# CHANGELOG.md section, and publish the package to npm. A push to main that
+# isn't a release (its package.json version is already tagged) is a no-op.
+#
+# Requires an NPM_TOKEN repo secret (an npm automation token with publish
+# access to the ymchat-react-native package) for the npm publish step.
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine version from package.json
+        id: version
+        run: |
+          VERSION="$(sed -n 's/.*"version"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' package.json | head -1)"
+          if [[ -z "$VERSION" ]]; then
+            echo "::error::could not read version from package.json"
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check whether this version is already released
+        id: check
+        run: |
+          if git rev-parse -q --verify "refs/tags/${{ steps.version.outputs.tag }}" >/dev/null; then
+            echo "already_tagged=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "already_tagged=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Extract CHANGELOG section
+        if: steps.check.outputs.already_tagged == 'false'
+        id: changelog
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          NOTES_FILE="$(mktemp)"
+          if ! ./scripts/extract_changelog_section.sh "$VERSION" CHANGELOG.md > "$NOTES_FILE"; then
+            echo "::error::no CHANGELOG.md section found for $VERSION"
+            exit 1
+          fi
+          echo "notes_file=$NOTES_FILE" >> "$GITHUB_OUTPUT"
+
+      - name: Create tag
+        if: steps.check.outputs.already_tagged == 'false'
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "$TAG" -m "$TAG"
+          git push origin "$TAG"
+
+      - name: Create GitHub Release
+        if: steps.check.outputs.already_tagged == 'false'
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$TAG" \
+            --title "$TAG" \
+            --notes-file "${{ steps.changelog.outputs.notes_file }}"
+
+      - name: Set up Node for npm publish
+        if: steps.check.outputs.already_tagged == 'false'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Publish to npm
+        if: steps.check.outputs.already_tagged == 'false'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public
