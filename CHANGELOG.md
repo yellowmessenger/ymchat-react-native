@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.5]
+
+### Fixed
+
+- Upgraded native Android SDK to stop the "Read aloud" button reading emoji out loud — Android `YMChatbot-Android` 3.5.4. Text-to-speech engines pronounce emoji by name, so "Your payment is confirmed 😊" was read as "...confirmed smiling face with smiling eyes". No JS API changes.
+
 ## [3.5.4]
 
 ### Fixed
