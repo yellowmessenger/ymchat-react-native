@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.4]
+
+### Fixed
+
+- Upgraded native Android SDK to fix the widget's "Read aloud" button — Android `YMChatbot-Android` 3.5.3. The button now switches to a stop button while a message is being spoken, a second tap stops playback instead of restarting the message from the beginning, and the button resets on its own when the message finishes. No JS API changes.
+
 ## [3.5.3]
 
 ### Fixed
