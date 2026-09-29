@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.6]
+
+### Fixed
+
+- Upgraded native Android SDK to fix a crash on init — Android `YMChatbot-Android` 3.5.5. `TextToSpeech.setLanguage()` could throw a `NullPointerException` on devices where the TTS engine invokes its init callback before the SDK's own field assignment completes. No JS API changes.
+
 ## [3.5.5]
 
 ### Fixed
