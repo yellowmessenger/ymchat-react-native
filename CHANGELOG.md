@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.7]
+
+### Fixed
+
+- Upgraded native iOS SDK to fix the close button not appearing on iOS 27 — iOS `YMChat` 2.4.3. The button now has a fixed size instead of collapsing to zero when its icon fails to load, and falls back to a system icon if the bundled one is missing. No JS API changes.
+
 ## [3.5.6]
 
 ### Fixed
