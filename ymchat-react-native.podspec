@@ -17,11 +17,17 @@ Pod::Spec.new do |s|
 
   s.dependency "YMChat", "~> 2.4.3"
 
-  # YMChat is a Swift pod. Its Objective-C compatibility header is generated at build time
-  # in the pod's configuration build directory. Adding this path lets us use a plain
-  # #import "YMChat-Swift.h" without needing @import (which requires C++ modules).
+  # YMChat is a Swift pod. Its Objective-C compatibility header is generated at build time:
+  #   - static libraries (no use_frameworks!): ${PODS_CONFIGURATION_BUILD_DIR}/YMChat/Swift Compatibility Header
+  #   - use_frameworks! (static or dynamic):   ${PODS_CONFIGURATION_BUILD_DIR}/YMChat/YMChat.framework/Headers
+  # Adding both lets us use a plain #import "YMChat-Swift.h" without @import (which requires
+  # C++ modules). The .mm also prefers <YMChat/YMChat-Swift.h> when it resolves.
+  ymchat_header_search_paths = [
+    '"${PODS_CONFIGURATION_BUILD_DIR}/YMChat/Swift Compatibility Header"',
+    '"${PODS_CONFIGURATION_BUILD_DIR}/YMChat/YMChat.framework/Headers"'
+  ]
   s.pod_target_xcconfig = {
-    'HEADER_SEARCH_PATHS' => '"${PODS_CONFIGURATION_BUILD_DIR}/YMChat/Swift Compatibility Header"'
+    'HEADER_SEARCH_PATHS' => ymchat_header_search_paths.join(' ')
   }
 
   # install_modules_dependencies handles New Architecture (TurboModule) dependencies
@@ -35,7 +41,7 @@ Pod::Spec.new do |s|
       folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
       s.compiler_flags = folly_compiler_flags + ' -DRCT_NEW_ARCH_ENABLED=1'
       s.pod_target_xcconfig = {
-        'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/boost"',
+        'HEADER_SEARCH_PATHS' => (ymchat_header_search_paths + ['"$(PODS_ROOT)/boost"']).join(' '),
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++17'
       }
       s.dependency 'React-Codegen'

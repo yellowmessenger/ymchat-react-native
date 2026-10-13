@@ -1,5 +1,12 @@
 #import <WebKit/WebKit.h>
+// YMChat is a Swift pod; its Objective-C compatibility header lives inside the
+// framework when the host uses use_frameworks! (static or dynamic), and in the
+// pod's "Swift Compatibility Header" build dir when pods are static libraries.
+#if __has_include(<YMChat/YMChat-Swift.h>)
+#import <YMChat/YMChat-Swift.h>
+#else
 #import "YMChat-Swift.h"
+#endif
 #import "YMChatReactNative.h"
 
 // ---------------------------------------------------------------------------
