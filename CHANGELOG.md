@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.8]
+
+### Fixed
+
+- iOS: fixed `'YMChat-Swift.h' file not found` when the host app's Podfile uses `use_frameworks!` (static or dynamic linkage, e.g. as required by `@react-native-firebase`). Apps no longer need a Podfile `post_install` workaround to add the YMChat framework headers path. No JS API changes.
+
 ## [3.5.7]
 
 ### Fixed
